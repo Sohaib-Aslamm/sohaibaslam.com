@@ -17,7 +17,7 @@
   <!-- Tempusdominus Bootstrap 4 -->
   <link rel="stylesheet" href="{% static 'Assets/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css' %}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="{% static 'Assets/dist/css/adminlte.min.css' %}">
+  <link rel="stylesheet" href="{% static 'Assets/distrib/css/adminlte.min.css' %}">
   <!-- overlayScrollbars -->
   <link rel="stylesheet" href="{% static 'Assets/plugins/overlayScrollbars/css/OverlayScrollbars.min.css' %}">
 
@@ -82,9 +82,6 @@
       <li class="nav-item d-none d-sm-inline-block">
         <a href="/admin" class="nav-link text-greeno font-weight-bolder">Home</a>
       </li>
-{#      <li class="nav-item d-none d-sm-inline-block">#}
-{#        <a href="#" class="nav-link text-greeno font-weight-bolder">Contact</a>#}
-{#      </li>#}
 
           <li class="nav-item d-none d-sm-inline-block">
               <a href="/user_logout" class="nav-link text-greeno font-weight-bolder"><i class="fas fa-power-off"> Logout</i></a>
@@ -104,7 +101,7 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{% static 'Assets/dist/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
+          <img src="{% static 'Assets/distrib/img/user2-160x160.jpg' %}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a class="d-block text-greeno font-weight-bold">{{ user.username }}</a>
@@ -254,7 +251,7 @@
 <!-- overlayScrollbars -->
 <script src="{% static 'Assets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js' %}"></script>
 <!-- AdminLTE App -->
-<script src="{% static 'Assets/dist/js/adminlte.js' %}"></script>
+<script src="{% static 'Assets/distrib/js/adminlte.js' %}"></script>
 <script src="https://cdn.ckeditor.com/4.19.0/standard/ckeditor.js"></script>
 
 <script>
