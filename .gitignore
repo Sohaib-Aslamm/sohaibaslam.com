@@ -6,6 +6,8 @@ __pycache__/
 # C extensions
 *.so
 
+media/
+sohaib/settings.py
 # Distribution / packaging
 .Python
 build/

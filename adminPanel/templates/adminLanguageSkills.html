@@ -1,0 +1,241 @@
+{% extends 'baseAdmin.html' %}
+
+{% load static %}
+
+    {% block title %} <title>Language Skills | Section</title> {% endblock title %}
+
+{% block header %}
+
+     <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-greeno">Language & Skill Section</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin" class="text-greeno">Dashboard</a></li>
+              <li class="breadcrumb-item text-aspire">Language_Skills</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+
+{% endblock header %}
+
+
+
+
+
+{% block content %}
+
+<div class="container-fluid mt-5">
+
+<div class="row container-fluid justify-content-end">
+        <button class="btn bg-greeno white" data-toggle="modal" data-target="#exampleModalCenter">+ Add Lang & Skill</button>
+</div>
+
+    <table class="table table-hover table-bordered mt-5">
+  <thead class="bg-greeno white">
+    <tr>
+      <th scope="col">Skill 1</th>
+         <th scope="col">Skill 2</th>
+         <th scope="col">Skill 3</th>
+         <th scope="col">Skill 4</th>
+         <th scope="col">Skill 5</th>
+         <th scope="col">Skill 6</th>
+         <th scope="col">Skill 7</th>
+         <th scope="col">Skill 8</th>
+
+
+    </tr>
+  </thead>
+         <tbody>
+  {% for data in SLdata %}
+    <tr>
+      <td>{{ data.skill1 }} <b>|</b> {{ data.expert1 }}</td>
+      <td>{{ data.skill2 }} <b>|</b> {{ data.expert2 }}</td>
+      <td>{{ data.skill3 }} <b>|</b> {{ data.expert3 }}</td>
+      <td>{{ data.skill4 }} <b>|</b> {{ data.expert4 }}</td>
+      <td>{{ data.skill5 }} <b>|</b> {{ data.expert5 }}</td>
+      <td>{{ data.skill6 }} <b>|</b> {{ data.expert6 }}</td>
+      <td>{{ data.skill7 }} <b>|</b> {{ data.expert7 }}</td>
+      <td>{{ data.skill8 }} <b>|</b> {{ data.expert8 }}</td>
+        </tr>
+  {% endfor %}
+  </tbody>
+
+         <thead class="bg-greeno white">
+    <tr>
+
+      <th scope="col">Language 1</th>
+      <th scope="col">Language 2</th>
+      <th scope="col">Language 3</th>
+      <th scope="col" class="text-center">Operations</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for data in SLdata %}
+    <tr>
+
+        <td><img src="{{ data.Icon1.url }}" style="width:20px; height:20px;"> <b>|</b> {{ data.lang1 }}<br> {{ data.str1 }}</td>
+      <td><img src="{{ data.Icon2.url }}" style="width:20px; height:20px;"> <b>|</b> {{ data.lang2 }}<br> {{ data.str2 }}</td>
+      <td><img src="{{ data.Icon3.url }}" style="width:20px; height:20px;"> <b>|</b> {{ data.lang3 }}<br> {{ data.str3 }}</td>
+     <td class="text-center">
+          <a class="text-center mx-2" href="/Update/{{ data.id }}/language_skills"><i class="fa fa-edit fa-lg" style="color: green;"></i> </a>
+          <a class="text-center mx-2" href="/Delete/{{ data.id }}/language_skills"><i class="fa fa-trash fa-lg" style="color: red;"></i> </a>
+      </td>
+        </tr>
+  {% endfor %}
+  </tbody>
+
+</table>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-greeno">
+        <h5 class="modal-title white" id="exampleModalLongTitle">Language & Skill Section</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+      <div class="modal-body">
+            <div class="row mb-3">
+                <div class="col-2">
+                    <label class="white">Skill 1</label>
+                    {{ form.skill1 }}
+                </div>
+                <div class="col-2">
+                    <label class="white">Strength</label>
+                    {{ form.expert1 }}
+                </div>
+                  <div class="col-2">
+                    <label class="white">Skill 2</label>
+                      {{ form.skill2 }}
+                </div>
+                 <div class="col-2">
+                    <label class="white">Strength</label>
+                    {{ form.expert2 }}
+                </div>
+                <div class="col-2">
+                    <label class="white">Skill 3</label>
+                      {{ form.skill3 }}
+                </div>
+                 <div class="col-2">
+                    <label class="white">Strength</label>
+                    {{ form.expert3 }}
+                </div>
+            </div>
+               <div class="row mb-3">
+                <div class="col-2">
+                    <label class="white">Skill 4</label>
+                    {{ form.skill4 }}
+                </div>
+                <div class="col-2">
+                    <label class="white">Strength</label>
+                    {{ form.expert4 }}
+                </div>
+                  <div class="col-2">
+                    <label class="white">Skill 5</label>
+                      {{ form.skill5 }}
+                </div>
+                 <div class="col-2">
+                    <label class="white">Strength</label>
+                    {{ form.expert5 }}
+                </div>
+                <div class="col-2">
+                    <label class="white">Skill 6</label>
+                      {{ form.skill6 }}
+                </div>
+                 <div class="col-2">
+                    <label class="white">Strength</label>
+                    {{ form.expert6 }}
+                </div>
+            </div>
+               <div class="row mb-3">
+                <div class="col-2">
+                    <label class="white">Skill 7</label>
+                    {{ form.skill7 }}
+                </div>
+                <div class="col-2">
+                    <label class="white">Strength</label>
+                    {{ form.expert7 }}
+                </div>
+                  <div class="col-2">
+                    <label class="white">Skill 8</label>
+                      {{ form.skill8 }}
+                </div>
+                 <div class="col-2">
+                    <label class="white">Strength</label>
+                    {{ form.expert8 }}
+                </div>
+            </div>
+
+           <div class="row mb-3">
+                <div class="col-2">
+                    <label class="white">Language 1</label>
+                    {{ form.lang1 }}
+                </div>
+                <div class="col-2">
+                    <label class="white">Strength</label>
+                    {{ form.str1 }}
+                </div>
+                  <div class="col-2">
+                    <label class="white">Language 2</label>
+                      {{ form.lang2 }}
+                </div>
+                <div class="col-2">
+                    <label class="white">Strength</label>
+                      {{ form.str2 }}
+                </div>
+                 <div class="col-2">
+                    <label class="white">Language 3</label>
+                     {{ form.lang3 }}
+                </div>
+                 <div class="col-2">
+                    <label class="white">Strength</label>
+                     {{ form.str3 }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-4">
+                    <label class="white">Language1 Icon</label>
+                    {{ form.Icon1 }}
+                </div>
+                  <div class="col-4">
+                    <label class="white">Language2 Icon</label>
+                      {{ form.Icon2 }}
+                </div>
+                 <div class="col-4">
+                    <label class="white">Language3 Icon</label>
+                     {{ form.Icon3 }}
+                </div>
+            </div>
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn bg-greeno white" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn bg-greeno white">Save Information</button>
+      </div>
+             </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock content %}

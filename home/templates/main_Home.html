@@ -1,0 +1,53 @@
+{% extends 'home_base.html' %}
+{% load static %}
+
+{% block content %}
+
+            <!-- OUR BLOG START -->
+            <div class="section-full  p-t80 p-b50 bg-white ">
+				<div class="container">
+
+                    <!-- BLOG SECTION START -->
+                    <div class="section-content">
+                        <div class="row d-flex justify-content-center">
+
+                        	<!--Block one-->
+                             {% for data in allBlog %}
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <!--Block one-->
+                                <div class="blog-post date-style-2">
+
+                                    <div class="wt-post-info bg-white">
+                                        <div class="wt-post-meta ">
+                                            <ul>
+                                                <li class="post-date">{{ data.created_at }}</li>
+                                            </ul>
+                                        </div>
+                                        <div class="wt-post-title ">
+                                            <h3 class="post-title">{{ data.title }}</h3>
+                                        </div>
+                                        <div class="wt-post-text ">
+                                            <p>{{ data.heading }}</p>
+                                        </div>
+                                        <div class="wt-post-readmore ">
+                                            <a href="/Read_Post/{{ data.sNo }}" class="site-button-link black">Read More</a>
+                                        </div>
+                                   </div>
+                                </div>
+                            </div>
+
+                            {% endfor %}
+
+                    </div>
+
+                </div>
+
+             </div>
+            <!-- OUR BLOG END -->
+
+
+
+        </div>
+        <!-- CONTENT END -->
+
+{% endblock content %}

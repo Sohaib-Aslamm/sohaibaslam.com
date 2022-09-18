@@ -1,0 +1,130 @@
+{% extends 'baseAdmin.html' %}
+
+{% load static %}
+
+    {% block title %} <title>Update | About</title> {% endblock title %}
+
+{% block header %}
+
+     <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-greeno">Update About Section</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin" class="text-greeno">Dashboard</a></li>
+              <li class="breadcrumb-item text-aspire"><a href="/about" class="text-greeno">About</a></li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+
+{% endblock header %}
+
+
+
+
+
+{% block content %}
+
+<div class="container-fluid">
+<div class="row mt-5 mb-5 card container">
+
+
+     <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+      <div class="modal-body">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Name</label>
+                    {{ form.fullName }}
+                </div>
+                  <div class="col-6">
+                    <label class="white">Designation</label>
+                   {{ form.Designation }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Street</label>
+                   {{ form.street }}
+                </div>
+                  <div class="col-6">
+                    <label class="white">Area of Research</label>
+                    {{ form.areaofResearch }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Previous Job</label>
+                    {{ form.previousJob }}
+                </div>
+                  <div class="col-6">
+                    <label class="white">School</label>
+                    {{ form.School }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Email</label>
+                  {{ form.Email }}
+                </div>
+                  <div class="col-6">
+                    <label class="white">Mobile</label>
+                   {{ form.Phone }}
+                </div>
+            </div>
+             <div class="row mb-3">
+                <div class="col-3">
+                    <label class="white">Skype</label>
+                   {{ form.Skype }}
+                </div>
+                  <div class="col-3">
+                    <label class="white">Merital</label>
+                   {{ form.meritalStatus }}
+                </div>
+                  <div class="col-3">
+                    <label class="white">Nationality</label>
+                  {{ form.Nationality }}
+                </div>
+                   <div class="col-3">
+                    <label class="white">Birthday</label>
+                    {{ form.Birthday }}
+                </div>
+            </div>
+           <div class="row mb-3">
+                <div class="col-12">
+                    <label class="white">About you</label>
+                   {{ form.description }}
+                </div>
+            </div>
+           <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Choose Profile:</label>
+                   {{ form.profile }}
+                </div>
+                <div class="col-6">
+                    <label class="white">Attach Resume:</label>
+                   {{ form.resume }}
+                </div>
+            </div>
+
+
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="submit" class="btn bg-greeno white">Save Changes</button>
+      </div>
+             </form>
+    </div>
+
+</div>
+
+
+{% endblock content %}

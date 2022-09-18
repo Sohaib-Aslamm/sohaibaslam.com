@@ -1,0 +1,212 @@
+{% extends 'baseAdmin.html' %}
+
+{% load static %}
+
+    {% block title %} <title>About | Section</title> {% endblock title %}
+
+{% block header %}
+
+     <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 text-greeno">About Section</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="/admin" class="text-greeno">Dashboard</a></li>
+              <li class="breadcrumb-item text-aspire">About</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+
+{% endblock header %}
+
+
+
+
+
+{% block content %}
+
+<div class="container-fluid mt-5">
+
+<div class="row container-fluid justify-content-end">
+    <button class="btn bg-greeno white" data-toggle="modal" data-target="#exampleModalCenter">+ Add Information</button>
+</div>
+
+
+    <table class="table table-responsive table-hover table-bordered mt-5">
+  <thead class="bg-greeno white">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Designation</th>
+      <th scope="col">Street</th>
+      <th scope="col">Area of Research</th>
+      <th scope="col">Previous Job</th>
+      <th scope="col">School</th>
+      <th scope="col">Birthday</th>
+      <th scope="col">Merital</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for data in ABTMD %}
+    <tr>
+      <td>{{ data.fullName }}</td>
+      <td>{{ data.Designation }}</td>
+      <td>{{ data.street }}</td>
+      <td>{{ data.areaofResearch }}</td>
+      <td>{{ data.previousJob }}</td>
+      <td>{{ data.School }}</td>
+      <td>{{ data.Birthday }}</td>
+      <td>{{ data.meritalStatus }}</td>
+        </tr>
+    {% endfor %}
+  </tbody>
+
+        <thead class="bg-greeno white">
+    <tr>
+      <th scope="col">Nationality</th>
+      <th scope="col">Skype</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Email</th>
+      <th scope="col">Resume</th>
+      <th scope="col">Profile</th>
+      <th colspan="2" class="text-center">Operations</th>
+    </tr>
+  </thead>
+
+        <tbody>
+{% for data in ABTMD %}
+   <tr>
+      <td>{{ data.Nationality }}</td>
+      <td>{{ data.Skype }}</td>
+      <td>{{ data.Phone}}</td>
+      <td>{{ data.Email }}</td>
+       <td>{{ data.resume }}</td>
+      <td><img src="{{ data.profile.url }}" style="width: 50px; height: 50px;"></td>
+      <td>
+          <a class="mx-3" href="/Update/{{ data.id }}/about"><i class="fa fa-edit fa-lg" style="color: green;"></i> </a>
+      </td>
+       <td>
+          <a class="mx-3" href="/Delete/{{ data.id }}/about"><i class="fa fa-trash fa-lg" style="color: red;"></i> </a>
+      </td>
+
+        </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-greeno">
+        <h5 class="modal-title white" id="exampleModalLongTitle">About Section</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+      <div class="modal-body">
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Name</label>
+                    {{ form.fullName }}
+                </div>
+                  <div class="col-6">
+                    <label class="white">Designation</label>
+                   {{ form.Designation }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Street</label>
+                   {{ form.street }}
+                </div>
+                  <div class="col-6">
+                    <label class="white">Area of Research</label>
+                    {{ form.areaofResearch }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Previous Job</label>
+                    {{ form.previousJob }}
+                </div>
+                  <div class="col-6">
+                    <label class="white">School</label>
+                    {{ form.School }}
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Email</label>
+                  {{ form.Email }}
+                </div>
+                  <div class="col-6">
+                    <label class="white">Mobile</label>
+                   {{ form.Phone }}
+                </div>
+            </div>
+             <div class="row mb-3">
+                <div class="col-3">
+                    <label class="white">Skype</label>
+                   {{ form.Skype }}
+                </div>
+                  <div class="col-3">
+                    <label class="white">Merital</label>
+                   {{ form.meritalStatus }}
+                </div>
+                  <div class="col-3">
+                    <label class="white">Nationality</label>
+                  {{ form.Nationality }}
+                </div>
+                   <div class="col-3">
+                    <label class="white">Birthday</label>
+                    {{ form.Birthday }}
+                </div>
+            </div>
+           <div class="row mb-3">
+                <div class="col-12">
+                    <label class="white">About you</label>
+                   {{ form.description }}
+                </div>
+            </div>
+           <div class="row mb-3">
+                <div class="col-6">
+                    <label class="white">Choose Profile:</label>
+                   {{ form.profile }}
+                </div>
+                <div class="col-6">
+                    <label class="white">Attach Resume:</label>
+                   {{ form.resume }}
+                </div>
+            </div>
+
+
+
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn bg-greeno white" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn bg-greeno white">Save Information</button>
+      </div>
+             </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock content %}
