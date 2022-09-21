@@ -3,51 +3,40 @@
 
 {% block content %}
 
-            <!-- OUR BLOG START -->
-            <div class="section-full  p-t80 p-b50 bg-white ">
-				<div class="container">
+    <!-- OUR BLOG START -->
+    <div class="section-full  p-t80 p-b50 bg-white ">
+        <div class="container">
 
-                    <!-- BLOG SECTION START -->
-                    <div class="section-content">
-                        <div class="row d-flex justify-content-center">
+            <!-- BLOG SECTION START -->
+            <div class="section-content">
+                <div class="row d-flex justify-content-center">
 
-                        	<!--Block one-->
-                             {% for data in allBlog %}
-                            <div class="col-lg-4 col-md-6 col-sm-12">
-                                <!--Block one-->
-                                <div class="blog-post date-style-2">
-
-                                    <div class="wt-post-info bg-white">
-                                        <div class="wt-post-meta ">
-                                            <ul>
-                                                <li class="post-date">{{ data.created_at }}</li>
-                                            </ul>
-                                        </div>
-                                        <div class="wt-post-title ">
-                                            <h3 class="post-title">{{ data.title }}</h3>
-                                        </div>
-                                        <div class="wt-post-text ">
-                                            <p>{{ data.heading }}</p>
-                                        </div>
-                                        <div class="wt-post-readmore ">
-                                            <a href="/Read_Post/{{ data.sNo }}" class="site-button-link black">Read More</a>
-                                        </div>
-                                   </div>
-                                </div>
-                            </div>
-
-                            {% endfor %}
-
+                    <!--Block one-->
+                    <div class="card">
+                        <div class="card-body shadow-lg rounded">
+                           <h4 class="common-color">About Me:</h4>
+                            <p>I am a computer science graduate from well known University.
+                                Currently working as a senior python Django developer.
+                                Working on Land record digitization with Board of Revenue Gwadar and Defense Housing Authority
+                               </p>
+                            <p>I belongs to capital of Pakistan "ISLAMABAD". I have done few internship in python.
+                                Python is my passion and the next goal is computer vision expert,
+                                on other hand doing self research at metaverse technology,
+                                Joined PIAIC Metaverse program.</p>
+                        </div>
                     </div>
+
 
                 </div>
 
-             </div>
-            <!-- OUR BLOG END -->
-
-
+            </div>
 
         </div>
-        <!-- CONTENT END -->
+        <!-- OUR BLOG END -->
+
+
+
+    </div>
+    <!-- CONTENT END -->
 
 {% endblock content %}

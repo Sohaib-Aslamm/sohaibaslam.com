@@ -107,12 +107,12 @@
 
                                     {% if user.is_authenticated %}
                                     <li><a href="/Home"><span class="common-color">Home</span></a></li>
-                                    <li><a href="/Portfolio"><span class="common-color">Portfolio</span></a></li>
-                                        <li><a href="/blog"><span class="common-color">Blog</span></a></li>
+                                    <li><a href="/Portfolio" target="_blank"><span class="common-color">Portfolio</span></a></li>
+                                        <li><a href="/blog" target="_blank"><span class="common-color">Blog</span></a></li>
                                         {% else %}
                                         <li><a href="/Home"><span class="common-color">Home</span></a></li>
-                                        <li><a href="/Portfolio"><span class="common-color">Portfolio</span></a></li>
-                                        <li><a href="/blog"><span class="common-color">Blog</span></a></li>
+                                        <li><a href="/Portfolio" target="_blank"><span class="common-color">Portfolio</span></a></li>
+                                        <li><a href="/blog" target="_blank"><span class="common-color">Blog</span></a></li>
                                     {% endif %}
 
 
@@ -145,16 +145,28 @@
                         <div class="col-md-8">
                         <div class="content">
                             <h4 class="text-white"> SOHAIB_ASLAM</h4>
-                            <h5 class="common-color">Python | Computer vision | Metaverse Self Researcher</h5>
-                            <p class="text-white">Computer vision is the one is most scoped technology in future metaverse</p>
+                            <h5 class="common-color">Python | Django | Postgres | Metaverse Researcher</h5>
+                            <p class="text-white">Working in Python and frameworks also studying Metaverse at PIAIC</p>
+
+                              <div class="quality-video-section">
+                            <div class="quality-video">
+                                 <a href="#" class="mfp-video play-now">
+                           <i class="icon fa fa-play"></i>
+                                    <span class="ripple"></span>
+                                </a>
+                            </div>
+                        </div>
+
                         </div>
                         </div>
 
-                        <div class="col-md-4 mt-5">
+                        <div class="col-md-4" style="margin-top: 120px;">
                         <div class="sohaib-img">
                             <img class="sohaib-img" src="{% static 'Assets/dronza_images/sohaib.jpg' %}" alt="">
                         </div>
                         </div>
+
+
 
                     </div>
                         <!-- BREADCRUMB ROW -->
