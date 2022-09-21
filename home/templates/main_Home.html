@@ -7,12 +7,21 @@
     <div class="section-full  p-t80 p-b50 bg-white ">
         <div class="container">
 
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+  <strong>{{ message }}</strong>.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    {% endfor %}
+
             <!-- BLOG SECTION START -->
             <div class="section-content">
                 <div class="row d-flex justify-content-center">
 
                     <!--Block one-->
-                    <div class="card">
+                    <div class="card mt-5">
                         <div class="card-body shadow-lg rounded">
                            <h4 class="common-color">About Me:</h4>
                             <p>I am a computer science graduate from well known University.
@@ -27,6 +36,53 @@
                     </div>
 
 
+                                <div class="clear mt-5" id="comment-list">
+                                    <div class="comments-area" id="comments">
+                                        <div>
+
+                                            <!-- LEAVE A REPLY START -->
+                                            <div class="comment-respond m-t30" id="respond">
+
+                                                <h2 class="comment-reply-title common-color" id="reply-title">Contact:
+
+                                                </h2>
+
+
+                                               <form class="comment-form" id="commentform" method="POST" action="/sayhello">
+                                                    {% csrf_token %}
+
+                                                    <p class="comment-form-author">
+                                                        <label>Name <span class="required">*</span></label>
+                                                        <input class="form-control" type="text" value="" name="yourName"  placeholder="Your Name" id="author">
+                                                    </p>
+
+                                                    <p class="comment-form-email">
+                                                        <label for="email">Email <span class="required">*</span></label>
+                                                        <input class="form-control" type="text" value="" name="email" id="email" placeholder="Email">
+                                                    </p>
+
+
+
+                                                    <p class="comment-form-comment">
+                                                        <label for="comment">Message</label>
+                                                        <textarea class="form-control" rows="8" name="description" placeholder="Message..." id="comment"></textarea>
+                                                    </p>
+
+                                                    <p class="form-submit">
+                                                        <button class="site-button site-btn-effect" type="submit">Submit</button>
+                                                    </p>
+
+                                                </form>
+
+
+                                            </div>
+                                            <!-- LEAVE A REPLY END -->
+                                       </div>
+                                    </div>
+                                </div>
+                                <!-- BLOG END -->
+
+
                 </div>
 
             </div>
@@ -38,5 +94,7 @@
 
     </div>
     <!-- CONTENT END -->
+
+
 
 {% endblock content %}

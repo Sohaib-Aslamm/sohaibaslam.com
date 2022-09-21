@@ -3,7 +3,7 @@ from adminPanel.models import About, Experience, Education, LangSkill, Portfolio
     userBlog, blog_Review, hello
 
 from django.core.paginator import Paginator
-
+from django.contrib import messages
 
 
 # Create your views here.
@@ -72,4 +72,5 @@ def sayhello(request):
         description = request.POST.get('description')
         sv = hello(yourName=yourName, email=email, description=description)
         sv.save()
-        return redirect('/Portfolio')
+        messages.success(request, 'your message has been sent...')
+        return redirect('/Home')
