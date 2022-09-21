@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from adminPanel.models import About, Experience, Education, LangSkill, Portfolios, Recommendations, SocialMedia, \
-    userBlog, blog_Review
+    userBlog, blog_Review, hello
 
 from django.core.paginator import Paginator
 
@@ -63,3 +63,13 @@ def blogReview(request):
         sv.save()
 
         return redirect('/blog')
+
+
+def sayhello(request):
+    if request.method == 'POST':
+        yourName = request.POST.get('yourName')
+        email = request.POST.get('email')
+        description = request.POST.get('description')
+        sv = hello(yourName=yourName, email=email, description=description)
+        sv.save()
+        return redirect('/Portfolio')
