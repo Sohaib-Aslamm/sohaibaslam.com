@@ -18,7 +18,7 @@ def sohaib_Home(request):
 
 def Portfolio(request):
     about = About.objects.all()
-    experience = Experience.objects.all()
+    experience = Experience.objects.all().order_by('-id')
     education = Education.objects.all()
     languages_skills = LangSkill.objects.all()
     Recommendation = Recommendations.objects.all()
