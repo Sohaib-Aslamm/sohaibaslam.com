@@ -135,3 +135,4 @@ class SocialMediaForm(forms.ModelForm):
             'website': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'website link'}),
         }
 
+

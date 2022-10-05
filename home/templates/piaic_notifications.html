@@ -18,7 +18,7 @@
     <link rel="shortcut icon" type="image/x-icon" href={% static 'Assets/dronza_images/favicon.png' %} />
 
     <!-- PAGE TITLE HERE -->
-   {% block title %} <title></title> {% endblock title %}
+    <title>PIAIC Notifications</title>
 
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -67,7 +67,7 @@
         color: #db253b;
     }
 </style>
-   
+
 </head>
 
 <body>
@@ -111,11 +111,12 @@
                             <!-- MAIN Vav -->
                             <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-start">
 
-                                 <ul class=" nav navbar-nav">
+                                   <ul class=" nav navbar-nav">
 
-                                    <li><a href="/Home">Home</a></li>
-                                    <li><a href="/Portfolio">Portfolio</a></li>
-                                    <li><a href="/blog">Blog</a></li>
+                                      <li><a href="/Home">Home</a></li>
+                                    <li><a href="/PIAIC">Attachments</a></li>
+                                        <li><a href="/Notification">Notification</a></li>
+
 
                                 </ul>
 
@@ -151,15 +152,15 @@
                     <div class="wt-bnr-inr-entry">
                     	<div class="banner-title-outer">
                         	<div class="banner-title-name">
-                        		<h2 class="site-text-white">Sohaib's blog</h2>
+                        		<h2 class="site-text-white">PIAIC Notifications</h2>
                             </div>
                         </div>
                         <!-- BREADCRUMB ROW -->
 
                             <div>
                                 <ul class="wt-breadcrumb breadcrumb-style-2">
-                                    <li><a href="/Blog">Home</a></li>
-                                    <li>Blog</li>
+                                    <li><a href="/PIAIC">Home</a></li>
+                                    <li>Notifications</li>
                                 </ul>
                             </div>
 
@@ -181,7 +182,7 @@
                         <div class="row d-flex justify-content-center">
                         	<!--Block one-->
 
-                            {% for post in BLOGDATA %}
+                            {% for Attach in Final_Attachments %}
                             <div class="col-lg-4 col-md-6 col-sm-12">
                                 <!--Block one-->
                                 <div class="blog-post date-style-2">
@@ -189,17 +190,18 @@
                                     <div class="wt-post-info bg-white">
                                         <div class="wt-post-meta ">
                                             <ul>
-                                                <li class="post-date">{{ post.created_at }}</li>
+                                                <li class="post-date">{{ Attach.created_at }}</li>
                                             </ul>
                                         </div>
                                         <div class="wt-post-title ">
-                                            <h3 class="post-title">{{ post.title }}</h3>
+                                            <h3 class="post-title">{{ Attach.title }}</h3>
                                         </div>
-                                        <div class="wt-post-text ">
-                                            <p>{{ post.heading }}</p>
+                                         <div class="wt-post-text ">
+                                            <p>{{ Attach.tags }}</p>
                                         </div>
+
                                         <div class="wt-post-readmore ">
-                                            <a href="/ViewDetail/{{ post.sNo }}/blogDetail" class="site-button-link black">Read More</a>
+                                            <a href="/ViewDetail/{{ Attach.sNo }}/Notification_Detail" class="site-button-link black">View Notification</a>
                                         </div>
                                    </div>
                                 </div>
@@ -210,19 +212,19 @@
 
                         <ul class="pagination m-b0 p-b0">
 
-                            {% if BLOGDATA.has_previous %}
-                          <li class="page-item"><a class="page-link" href="?page={{ BLOGDATA.previous_page_number }}">Previous</a></li>
+                            {% if Final_Attachments.has_previous %}
+                          <li class="page-item"><a class="page-link" href="?page={{ Final_Attachments.previous_page_number }}">Previous</a></li>
                             {% endif %}
 
-                       <li class="page-item"><a class="page-link" href="/blog?page=1">First</a></li>
+                       <li class="page-item"><a class="page-link" href="/Notification?page=1">First</a></li>
 
 
                         {% for tpl in pageList %}
-                          <li class="page-item"><a class="page-link" href="/blog?page={{ tpl }}">{{ tpl }}</a></li>
+                          <li class="page-item"><a class="page-link" href="/Notification?page={{ tpl }}">{{ tpl }}</a></li>
                         {% endfor %}
 
-                        {% if BLOGDATA.has_next  %}
-                          <li class="page-item"><a class="page-link" href="?page={{ BLOGDATA.next_page_number }}">Next</a></li>
+                        {% if Final_Attachments.has_next  %}
+                          <li class="page-item"><a class="page-link" href="?page={{ Final_Attachments.next_page_number }}">Next</a></li>
                           <li class="page-item"><a class="page-link" href="?page={{ lastPage }}">Last</a></li>
                             {% endif %}
 

@@ -2,7 +2,7 @@ from adminPanel.forms import AboutForm, ExperienceForm, EducationForm, LangSkill
     RecommendationsForm, SocialMediaForm, UserForm
 
 from adminPanel.models import About, Experience, Education, LangSkill, Portfolios, Recommendations, SocialMedia,\
-hello, userBlog
+hello, userBlog, PIAIC, PIAIC_Attachments, PIAIC_Notifications
 
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -276,6 +276,44 @@ def adminblog(request):
     return render(request, 'adminBlog.html', context)
 
 
+def adminPIAIC(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        tags = request.POST.get('tags')
+        instructions = request.POST.get('instructions')
+        instructions_By = request.POST.get('instructions_By')
+        description = request.POST.get('editor1')
+        files = request.FILES.getlist('files')
+        sv = PIAIC(title=title, tags=tags, instructions=instructions, instructions_By=instructions_By,
+                   description=description)
+        sv.save()
+        latest_id = PIAIC.objects.latest('sNo').sNo
+
+        for f in files:
+            Attachments = PIAIC_Attachments(files=f, Attachment_ID_id=latest_id)
+            Attachments.save()
+
+        return redirect('/adminPIAIC')
+
+    all_data = PIAIC.objects.all()
+    return render(request, 'adminPIAIC.html', {'all_data': all_data})
+
+
+def PIAIC_Notifi(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        tags = request.POST.get('tags')
+        instructions = request.POST.get('instructions')
+        instructions_By = request.POST.get('instructions_By')
+        description = request.POST.get('editor1')
+        file = request.FILES.get('file')
+        sv = PIAIC_Notifications(title=title, tags=tags, instructions=instructions, instructions_By=instructions_By,
+                                 description=description, image=file)
+        sv.save()
+        return redirect('/adminPIAIC_Notifications')
+
+    all_data = PIAIC_Notifications.objects.all()
+    return render(request, 'adminPIAIC_Notifications.html', {'all_data': all_data})
 
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Delete Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -332,8 +370,16 @@ def Delete(request, id, type):
         return redirect('/adminblog')
 
 
+    if type == 'piaic_admin':
+        DeleteRecord = PIAIC.objects.get(sNo=id)
+        DeleteRecord.delete()
+        return redirect('/adminPIAIC')
 
 
+    if type == 'piaic_notification':
+        DeleteRecord = PIAIC_Notifications.objects.get(sNo=id)
+        DeleteRecord.delete()
+        return redirect('/adminPIAIC_Notifications')
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Update Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
@@ -443,3 +489,20 @@ def Update(request, id, type):
             return redirect('/adminblog')
 
         return render(request, 'Update/updateBlog.html', {'form': UpdateForm})
+
+
+    if type == 'piaic_notification':
+
+        UpdateForm = PIAIC_Notifications.objects.get(sNo=id)
+        if request.method == 'POST':
+            UpdateForm.title = request.POST.get('title')
+            UpdateForm.tags = request.POST.get('tags')
+            UpdateForm.instructions = request.POST.get('instructions')
+            UpdateForm.instructions_By = request.POST.get('instructions_By')
+            UpdateForm.description = request.POST.get('editor1')
+            UpdateForm.image = request.FILES.get('file')
+            UpdateForm.save()
+            return redirect('/adminPIAIC_Notifications')
+
+        return render(request, 'Update/adminUpdateNotification.html', {'form': UpdateForm})
+

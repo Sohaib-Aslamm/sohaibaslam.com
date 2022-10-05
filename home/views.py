@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, HttpResponseRedirect
 from adminPanel.models import About, Experience, Education, LangSkill, Portfolios, Recommendations, SocialMedia, \
-    userBlog, blog_Review, hello
+    userBlog, blog_Review, hello, PIAIC, PIAIC_Attachments, PIAIC_Review, PIAIC_Notifications, PIAIC_NOTIFI_Review
 
 from django.core.paginator import Paginator
 from django.contrib import messages
@@ -43,15 +43,6 @@ def blogHome(request):
     return render(request, 'blog.html', context)
 
 
-def postDetail(request, sNo):
-    rdPost = userBlog.objects.filter(sNo=sNo)
-    coments = blog_Review.objects.filter(post__in=rdPost)
-    SMDT = SocialMedia.objects.all()
-    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-    context = {'rdPost': rdPost, 'RCPST': RCPST, 'SMDT': SMDT, 'coments': coments}
-    return render(request, 'read_post.html', context)
-
-
 def blogReview(request):
     if request.method == 'POST':
         postSno = request.POST.get('postSno')
@@ -74,3 +65,91 @@ def sayhello(request):
         sv.save()
         messages.success(request, 'your message has been sent...')
         return redirect('/Home')
+
+
+def PIAIC_Attachs(request):
+    All_Attachments = PIAIC.objects.all().order_by('-sNo')
+    paginator = Paginator(All_Attachments, 9)
+    pageNo = request.GET.get('page')
+    Final_Attachments = paginator.get_page(pageNo)
+    totalPages = Final_Attachments.paginator.num_pages
+    SMDT = SocialMedia.objects.all()
+    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+    context = {'Final_Attachments': Final_Attachments, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
+               'RCPST': RCPST, 'SMDT': SMDT}
+    return render(request, 'PIAIC.html', context)
+
+
+def PIAIC_QUERY(request):
+    if request.method == 'POST':
+        attSno = request.POST.get('attachsNo')
+        author = request.POST.get('author')
+        email = request.POST.get('email')
+        comment = request.POST.get('comment')
+        post_id = PIAIC.objects.get(sNo=attSno)
+        sv = PIAIC_Review(author=author, email=email, comment=comment, post=post_id)
+        sv.save()
+        return redirect('/thank_you')
+
+
+def PIAIC_NOTIFI(request):
+    All_Attachments = PIAIC_Notifications.objects.all().order_by('-sNo')
+    paginator = Paginator(All_Attachments, 9)
+    pageNo = request.GET.get('page')
+    Final_Attachments = paginator.get_page(pageNo)
+    totalPages = Final_Attachments.paginator.num_pages
+    SMDT = SocialMedia.objects.all()
+    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+    context = {'Final_Attachments': Final_Attachments, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
+               'RCPST': RCPST, 'SMDT': SMDT}
+    return render(request, 'piaic_notifications.html', context)
+
+
+def PIAIC_NOTIFI_QUERY(request):
+    if request.method == 'POST':
+        attSno = request.POST.get('attachsNo')
+        author = request.POST.get('author')
+        email = request.POST.get('email')
+        comment = request.POST.get('comment')
+        post_id = PIAIC_Notifications.objects.get(sNo=attSno)
+        sv = PIAIC_NOTIFI_Review(author=author, email=email, comment=comment, post=post_id)
+        sv.save()
+        return redirect('/thank_you_notif')
+
+
+def thank_you(request):
+    return render(request, 'thankyou.html')
+
+
+def thank_you_notif(request):
+    return render(request, 'thank_you_notification.html')
+
+
+def Detail_Record(request, sNo, type):
+    if type == 'blogDetail':
+        rdPost = userBlog.objects.filter(sNo=sNo)
+        coments = blog_Review.objects.filter(post__in=rdPost).order_by('-sNo')
+        SMDT = SocialMedia.objects.all()
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        context = {'rdPost': rdPost, 'RCPST': RCPST, 'SMDT': SMDT, 'coments': coments}
+        return render(request, 'read_post.html', context)
+
+    if type == 'Attachment_Detail':
+        readAttachment = PIAIC.objects.filter(sNo=sNo)
+        Attachments = PIAIC_Attachments.objects.filter(Attachment_ID_id=sNo)
+        piaic_query = PIAIC_Review.objects.filter(post__in=readAttachment).order_by('-sNo')
+        SMDT = SocialMedia.objects.all()
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        context = {'readAttachment': readAttachment, 'Attachments': Attachments, 'piaic_query': piaic_query,
+                   'RCPST': RCPST, 'SMDT': SMDT}
+        return render(request, 'Read_Attachment.html', context)
+
+
+    if type == 'Notification_Detail':
+        readAttachment = PIAIC_Notifications.objects.filter(sNo=sNo)
+        piaic_query = PIAIC_NOTIFI_Review.objects.filter(post__in=readAttachment).order_by('-sNo')
+        SMDT = SocialMedia.objects.all()
+        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+        context = {'readAttachment': readAttachment, 'piaic_query': piaic_query,
+                   'RCPST': RCPST, 'SMDT': SMDT}
+        return render(request, 'Read_PIAIC_Notifications.html', context)
