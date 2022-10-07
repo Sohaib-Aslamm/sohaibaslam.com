@@ -136,7 +136,9 @@
                     <div class="wt-bnr-inr-entry">
                     	<div class="banner-title-outer">
                         	<div class="banner-title-name">
-                        		<h2 class="site-text-white">PIAIC Attachments</h2>
+                                 {% for data in readAttachment %}
+                        		<h2 class="site-text-white">{{ data.title }}</h2>
+                                {% endfor %}
                             </div>
                         </div>
                         <!-- BREADCRUMB ROW -->
@@ -173,9 +175,15 @@
 
                                 {% for data in readAttachment %}
                                 <div class="blog-post blog-style-1">
-{#                                    <div class="wt-post-media wt-img-effect zoom-slow">#}
-{#                                        <a href="javascript:;"><img src={{ data.Icon.url }} alt="{{ data.tags }}"></a>#}
-{#                                    </div>#}
+
+
+                                    {% for Icon in ICONS %}
+                                        <div class="wt-post-media wt-img-effect zoom-slow mb-5">
+                                        <a href="javascript:;"><img src={{ Icon.icons.url }} alt="{{ data.tags }}"></a>
+                                         </div>
+                                        {% endfor %}
+
+
                                     <div class="wt-post-info  bg-white p-t30">
                                         <div class="wt-post-meta ">
                                             <ul>

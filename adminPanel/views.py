@@ -2,7 +2,7 @@ from adminPanel.forms import AboutForm, ExperienceForm, EducationForm, LangSkill
     RecommendationsForm, SocialMediaForm, UserForm
 
 from adminPanel.models import About, Experience, Education, LangSkill, Portfolios, Recommendations, SocialMedia,\
-hello, userBlog, PIAIC, PIAIC_Attachments, PIAIC_Notifications
+hello, userBlog, PIAIC, PIAIC_Attachments, PIAIC_Notifications, PIAIC_ICONS
 
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -284,6 +284,7 @@ def adminPIAIC(request):
         instructions_By = request.POST.get('instructions_By')
         description = request.POST.get('editor1')
         files = request.FILES.getlist('files')
+        icons = request.FILES.getlist('icons')
         sv = PIAIC(title=title, tags=tags, instructions=instructions, instructions_By=instructions_By,
                    description=description)
         sv.save()
@@ -292,6 +293,10 @@ def adminPIAIC(request):
         for f in files:
             Attachments = PIAIC_Attachments(files=f, Attachment_ID_id=latest_id)
             Attachments.save()
+
+        for f in icons:
+            ICONS = PIAIC_ICONS(icons=f, Icon_ID_id=latest_id)
+            ICONS.save()
 
         return redirect('/adminPIAIC')
 

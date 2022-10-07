@@ -154,6 +154,14 @@ class PIAIC(models.Model):
     created_at = models.DateTimeField(default=django.utils.timezone.now())
 
 
+class PIAIC_ICONS(models.Model):
+    def upload_design_to(self, filename):
+        return f'PIAICAttachments/Attachment_ID/ICONS{self.Icon_ID_id}/{filename}'
+
+    Icon_ID = models.ForeignKey(PIAIC, on_delete=models.CASCADE)
+    icons = models.FileField(upload_to=upload_design_to)
+
+
 class PIAIC_Attachments(models.Model):
     def upload_design_to(self, filename):
         return f'PIAICAttachments/Attachment_ID/{self.Attachment_ID_id}/{filename}'
