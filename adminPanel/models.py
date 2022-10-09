@@ -42,7 +42,7 @@ class About(models.Model):
     Email = models.EmailField(default="")
     description = models.TextField(default="")
     resume = models.FileField(upload_to='Resume', default="")
-    profile = models.ImageField(upload_to='profiles', default="")
+    profile = models.FileField(upload_to='profiles', default="")
 
 
 class Experience(models.Model):
@@ -59,7 +59,7 @@ class Education(models.Model):
     StudyArea = models.CharField(max_length=100, default="")
     From = models.CharField(max_length=100, default="")
     To = models.CharField(max_length=100, default="")
-    Icon = models.ImageField(upload_to='Education', default="")
+    Icon = models.FileField(upload_to='Education', default="")
 
 
 class LangSkill(models.Model):
@@ -85,14 +85,14 @@ class LangSkill(models.Model):
     str2 = models.CharField(max_length=100, choices=Expert_Lang, default="")
     lang3 = models.CharField(max_length=100, default="")
     str3 = models.CharField(max_length=100, choices=Expert_Lang, default="")
-    Icon1 = models.ImageField(upload_to='LangSkill/langIcons', default="")
-    Icon2 = models.ImageField(upload_to='LangSkill/langIcons', default="")
-    Icon3 = models.ImageField(upload_to='LangSkill/langIcons', default="")
+    Icon1 = models.FileField(upload_to='LangSkill/langIcons', default="")
+    Icon2 = models.FileField(upload_to='LangSkill/langIcons', default="")
+    Icon3 = models.FileField(upload_to='LangSkill/langIcons', default="")
 
 
 class Portfolios(models.Model):
     link = models.CharField(max_length=300, default="")
-    thumbnail = models.ImageField(upload_to='Portfolio/Thumbnails', default="")
+    thumbnail = models.FileField(upload_to='Portfolio/Thumbnails', default="")
 
 
 class Recommendations(models.Model):
@@ -122,7 +122,7 @@ class userBlog(models.Model):
     quote = models.CharField(max_length=255, default="")
     quote_by = models.CharField(max_length=255, default="")
     description = RichTextField(default="")
-    Icon = models.ImageField(upload_to='Blog/Icons', default="")
+    Icon = models.FileField(upload_to='Blog/Icons', default="")
     created_at = models.DateTimeField(default=django.utils.timezone.now())
 
 
@@ -178,7 +178,7 @@ class PIAIC_Notifications(models.Model):
     instructions = models.CharField(max_length=255, default="")
     instructions_By = models.CharField(max_length=255, default="")
     description = RichTextField(default="")
-    image = models.ImageField(upload_to='PIAICAttachments/Notification', default="")
+    image = models.FileField(upload_to='PIAICAttachments/Notification', default="")
     created_at = models.DateTimeField(default=django.utils.timezone.now())
 
 
