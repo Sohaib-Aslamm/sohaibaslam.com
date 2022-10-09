@@ -147,6 +147,7 @@ class hello(models.Model):
 class PIAIC(models.Model):
     sNo = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, default="")
+    heading = models.CharField(max_length=255, default="")
     tags = models.CharField(max_length=255, default="")
     instructions = models.CharField(max_length=255, default="")
     instructions_By = models.CharField(max_length=255, default="")
@@ -174,6 +175,7 @@ class PIAIC_Attachments(models.Model):
 class PIAIC_Notifications(models.Model):
     sNo = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, default="")
+    heading = models.CharField(max_length=255, default="")
     tags = models.CharField(max_length=255, default="")
     instructions = models.CharField(max_length=255, default="")
     instructions_By = models.CharField(max_length=255, default="")
