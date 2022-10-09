@@ -511,3 +511,18 @@ def Update(request, id, type):
 
         return render(request, 'Update/adminUpdateNotification.html', {'form': UpdateForm})
 
+
+    if type == 'piaic_admin':
+
+        UpdateForm = PIAIC.objects.get(sNo=id)
+        if request.method == 'POST':
+            UpdateForm.title = request.POST.get('title')
+            UpdateForm.tags = request.POST.get('tags')
+            UpdateForm.instructions = request.POST.get('instructions')
+            UpdateForm.instructions_By = request.POST.get('instructions_By')
+            UpdateForm.description = request.POST.get('editor1')
+            UpdateForm.save()
+            return redirect('/adminPIAIC')
+
+    return render(request, 'Update/updateadminPIAIC.html', {'form': UpdateForm})
+
