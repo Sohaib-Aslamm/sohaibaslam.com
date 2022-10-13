@@ -314,6 +314,8 @@
         </div>
         <!-- CONTENT END -->
 
+
+
         <!-- FOOTER START -->
         <footer class="site-footer footer-large footer-dark text-white footer-style1" >
 
@@ -365,7 +367,7 @@
                                        <div class="widget recent-posts-entry">
 
                                <ul class="widget_address">
-                                    {% for data in social_media %}
+                                    {% for data in SMDT %}
                                     <li><i class="fa fa-balance-scale"></i><a href="{{ data.github }}" target="_blank"><span class="link_color">Github</span></a></li>
                                     <li><i class="fa fa-question"></i><a href="{{ data.linkedin }}" target="_blank"><span class="link_color">Linkedin</span></a></li>
                                     <li><i class="fa fa-question"></i><a href="{{ data.youtube }}" target="_blank"><span class="link_color">Youtube</span></a></li>
@@ -389,7 +391,7 @@
                                 <div class="section-content">
                                     <div class="widget-post-bx">
 
-                                        {% for data in recent %}
+                                        {% for data in RCPST %}
 
                                         <div class="widget-post clearfix">
                                             <div class="wt-post-media">
@@ -419,14 +421,14 @@
                     </div>
                 </div>
             </div>
-            <!-- FOOTER COPYRIGHT -->
+                   <!-- FOOTER COPYRIGHT -->
 
             <div class="footer-middle">
 
            	 	<div class="container">
                     <div class="footer-middle-content">
                         <div class="logo-footer">
-                            <a href="index.html"> <img src="images/logo-light.png" alt="" ></a>
+                            <img src={% static 'Assets/dronza_images/logo-light.png' %} alt="" />
                         </div>
 
                         <ul class="copyrights-nav">
@@ -452,7 +454,6 @@
 
 
         <!-- BUTTON TOP START -->
-		<button class="scroltop"><span class="fa fa-angle-up  relative" id="btn-vibrate"></span></button>
 
     </div>
 
@@ -464,6 +465,8 @@
     </div>
 </div>
 <!-- LOADING AREA  END ====== -->
+</div>
+</body>
 
 <!-- JAVASCRIPT  FILES ========================================= -->
 <script  src={% static 'Assets/dronza_js/jquery-2.2.0.min.js' %}></script><!-- JQUERY.MIN JS -->
@@ -484,11 +487,15 @@
 <script src={% static 'Assets/dronza_js/slick.js' %}></script>
 <script src={% static 'Assets/dronza_js/jquery-ui.js' %}></script>
 <div id="fb-root"></div>
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v12.0" nonce="RZyGSR6b"></script>
 
 
-</div>
-</body>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4624S4W40X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-
+  gtag('config', 'G-4624S4W40X');
+</script>
 </html>
