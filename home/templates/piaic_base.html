@@ -18,15 +18,13 @@
     <link rel="shortcut icon" type="image/x-icon" href={% static 'Assets/dronza_images/favicon.png' %} />
 
     <!-- PAGE TITLE HERE -->
-   {% block title %} <title></title> {% endblock title %}
+    {% block title %}<title></title>{% endblock title %}
 
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- BOOTSTRAP STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href={% static 'Assets/dronza_css/bootstrap.min.css' %}>
-<!-- DISTORTION FONT STYLE SHEET -->
-    <link rel="stylesheet" type="text/css" href={% static 'Assets/dronza_css/sohaib_frontpage.css' %}>
     <!-- FONTAWESOME STYLE SHEET -->
     <link rel="stylesheet" type="text/css" href={% static 'Assets/dronza_css/fontawesome/css/font-awesome.min.css' %}>
 
@@ -66,14 +64,13 @@
 
 <style>
     .link_color{
-        color: whitesmoke;
+        color: #db253b;
     }
 </style>
 
 </head>
 
 <body>
-
 
     <div class="page-wraper">
 
@@ -84,10 +81,10 @@
                 <div class="main-bar">
                        <div class="container clearfix">
 
-                             <div class="logo-header">
+                            <div class="logo-header">
                                 <div class="logo-header-inner logo-header-one">
-                                    <a href="/Home">
-                                    <img src={% static 'Assets/dronza_images/logo-light.png' %} alt="" />
+                                    <a href="/home">
+                                    <img src={% static 'Assets/dronza_images/logo-white.png' %} alt="" />
                                     </a>
                                 </div>
                             </div>
@@ -100,34 +97,44 @@
                                 <span class="icon-bar icon-bar-three"></span>
                             </button>
 
+                            <div class="extra-nav header-2-nav">
+
+                                <div class="extra-cell">
+                                    <div class="header-search">
+                                        <a href="javascript:void(0);" class="header-search-icon"><i class="fa fa-search"></i></a>
+                                    </div>
+                                </div>
+
+                             </div>
+
 
                             <!-- MAIN Vav -->
                             <div class="nav-animation header-nav navbar-collapse collapse d-flex justify-content-start">
 
-                                <ul class=" nav navbar-nav">
+                                   <ul class=" nav navbar-nav">
 
-                                    {% if user.is_authenticated %}
-                                    <li><a href="/Home"><span class="common-color">Home</span></a></li>
-                                    <li><a href="/Portfolio" target="_blank"><span class="common-color">Portfolio</span></a></li>
-                                        <li><a href="/blog" target="_blank"><span class="common-color">Blog</span></a></li>
-                                        <li><a href="/PIAIC" target="_blank"><span class="common-color">PIAIC</span></a></li>
-                                        {% else %}
-                                        <li><a href="/Home"><span class="common-color">Home</span></a></li>
-                                        <li><a href="/Portfolio" target="_blank"><span class="common-color">Portfolio</span></a></li>
-                                        <li><a href="/blog" target="_blank"><span class="common-color">Blog</span></a></li>
-                                        <li><a href="/PIAIC" target="_blank"><span class="common-color">PIAIC</span></a></li>
-                                    {% endif %}
+                                      <li><a href="/Home">Home</a></li>
+                                    <li><a href="/PIAIC">Attachments</a></li>
+                                        <li><a href="/Notification">Notification</a></li>
+                                        <li><a href="https://forms.gle/H6HsTPhP3tpEaK7V7">Submission Form</a></li>
 
-
-                                     {% if user.is_authenticated %}
-                                            <li><a href="/admin"><span class="common-color">Admin Panel</span></a></li>
-                                    {% else %}
-
-                                    {% endif %}
 
                                 </ul>
 
                             </div>
+
+                            <!-- SITE Search -->
+                            <div id="search-toggle-block">
+                                <div id="search">
+                                    <form role="search" id="searchform" action="" method="get" class="radius-xl">
+                                        <div class="input-group">
+                                            <input class="form-control" value="" name="q" type="search" placeholder="Type to search"/>
+                                            <span class="input-group-append"><button type="button" class="search-btn"><i class="fa fa-search"></i></button></span>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
 
@@ -136,55 +143,9 @@
         </header>
         <!-- HEADER END -->
 
-        <!-- CONTENT START -->
-        <div class="page-content">
-
-            <!-- INNER PAGE BANNER -->
-            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static  'Assets/dronza_images/slide1.jpg'%});">
-{#            	<div class="overlay-main site-bg-primary opacity-09"></div>#}
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-md-8">
-                        <div class="content">
-                            <h4 class="text-white"> SOHAIB_ASLAM</h4>
-                            <h5 class="common-color">Python | Django | Postgres | Metaverse Researcher</h5>
-                            <p class="text-white">Working in Python and frameworks also studying Metaverse at PIAIC</p>
-
-                              <div class="quality-video-section">
-                            <div class="quality-video">
-                                 <a href="#" class="mfp-video play-now">
-                           <i class="icon fa fa-play"></i>
-                                    <span class="ripple"></span>
-                                </a>
-                            </div>
-                        </div>
-
-                        </div>
-                        </div>
-
-                        <div class="col-md-4" style="margin-top: 120px;">
-                        <div class="sohaib-img">
-                            <img class="sohaib-img" src="{% static 'Assets/dronza_images/sohaib.jpg' %}" alt="">
-                        </div>
-                        </div>
 
 
-
-                    </div>
-                        <!-- BREADCRUMB ROW -->
-
-                    </div>
-                </div>
-            </div>
-            <!-- INNER PAGE BANNER END -->
-
-
-
-
-{% block content %}  {% endblock content %}
-
-
+                        {% block content %}  {% endblock content %}
 
 
 
