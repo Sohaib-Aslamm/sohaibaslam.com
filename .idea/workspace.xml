@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bce9ef-6fa8-4538-8886-620b1f2d0b3c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sohaib.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sohaibaslam.com.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sohaibaslam.com.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/templates/Update/updateBlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/templates/Update/updateBlog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/templates/adminBlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/templates/adminBlog.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/templates/baseAdmin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/PIAIC.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/PIAIC.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Read_Attachment.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Read_Attachment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/Read_PIAIC_Notifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/Read_PIAIC_Notifications.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/blog.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/blog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/home_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/main_Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/main_Home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/piaic_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/piaic_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/piaic_notifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/piaic_notifications.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/portfolio.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/portfolio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/read_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/read_post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/thank_you_notification.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/thank_you_notification.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/thankyou.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/thankyou.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirement.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirement.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +32,10 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
@@ -85,7 +72,7 @@
       <option name="presentableId" value="Default" />
       <updated>1675432491177</updated>
       <workItem from="1675432492340" duration="6810000" />
-      <workItem from="1675448842011" duration="4375000" />
+      <workItem from="1675448842011" duration="10988000" />
     </task>
     <servers />
   </component>

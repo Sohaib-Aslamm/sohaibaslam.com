@@ -47,7 +47,6 @@ def user_login(request):
     return render(request, 'login.html')
 
 
-
 def user_logout(request):
     logout(request)
     messages.info(request, 'You are logged out !')
@@ -55,7 +54,6 @@ def user_logout(request):
 
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Insert Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 
 
 @login_required(login_url='/user_login')
@@ -68,7 +66,6 @@ def adminHome(request):
 def viewMessage(request, id):
     messages_detail = hello.objects.get(id=id)
     return render(request, 'viewMessages.html', {'messages_detail': messages_detail})
-
 
 
 @login_required(login_url='/user_login')
@@ -102,8 +99,6 @@ def adminAbout(request):
     return render(request, 'adminAbout.html', {'form': ABFM, 'ABTMD': ABTMD})
 
 
-
-
 @login_required(login_url='/user_login')
 def adminExperience(request):
     if request.method == 'POST':
@@ -125,8 +120,6 @@ def adminExperience(request):
     return render(request, 'adminExperience.html', {'form': EXPFM, 'EXPdata': data})
 
 
-
-
 @login_required(login_url='/user_login')
 def adminEducation(request):
     if request.method == 'POST':
@@ -144,8 +137,6 @@ def adminEducation(request):
         EDUFM = EducationForm()
     data = Education.objects.all()
     return render(request, 'adminEducation.html', {'form': EDUFM, 'EDUdata': data})
-
-
 
 
 @login_required(login_url='/user_login')
@@ -190,8 +181,6 @@ def SkillsLang(request):
     return render(request, 'adminLanguageSkills.html', {'form': SLFM, 'SLdata': SLdata})
 
 
-
-
 @login_required(login_url='/user_login')
 def portfolios(request):
     if request.method == 'POST':
@@ -206,8 +195,6 @@ def portfolios(request):
         PFFM = PortfoliosForm()
     PFdata = Portfolios.objects.all()
     return render(request, 'adminPortfolios.html', {'form': PFFM, 'PFdata': PFdata})
-
-
 
 
 @login_required(login_url='/user_login')
@@ -225,8 +212,6 @@ def recommendation(request):
         RECFM = RecommendationsForm()
     RECdata = Recommendations.objects.all()
     return render(request, 'adminRecommendations.html', {'form': RECFM, 'RECdata': RECdata})
-
-
 
 
 @login_required(login_url='/user_login')
@@ -324,7 +309,6 @@ def PIAIC_Notifi(request):
 
 
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Delete Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
 
 
 @login_required(login_url='/user_login')
@@ -466,9 +450,6 @@ def Update(request, id, type):
             RECFM = RecommendationsForm(instance=UPREC)
         return render(request, 'Update/updateRecommendations.html', {'form': RECFM})
 
-
-
-
     if type == 'socialMedia':
         if request.method == 'POST':
             UPSM = SocialMedia.objects.get(sNo=id)
@@ -481,22 +462,23 @@ def Update(request, id, type):
             SMFM = SocialMediaForm(instance=UPSM)
         return render(request, 'Update/updateSocialMedia.html', {'form': SMFM})
 
-
     if type == 'blog':
 
         UpdateForm = userBlog.objects.get(sNo=id)
         if request.method == 'POST':
+            file_data = request.POST.get('edit_file')
             UpdateForm.title = request.POST.get('title')
             UpdateForm.heading = request.POST.get('heading')
             UpdateForm.tags = request.POST.get('tags')
             UpdateForm.quote = request.POST.get('quote')
             UpdateForm.quote_by = request.POST.get('quote_by')
             UpdateForm.description = request.POST.get('editor1')
+            if not file_data == 'False':
+                UpdateForm.Icon = request.FILES['icon']
             UpdateForm.save()
             return redirect('/adminblog')
 
         return render(request, 'Update/updateBlog.html', {'form': UpdateForm})
-
 
     if type == 'piaic_notification':
 
@@ -512,7 +494,6 @@ def Update(request, id, type):
             return redirect('/adminPIAIC_Notifications')
 
         return render(request, 'Update/adminUpdateNotification.html', {'form': UpdateForm})
-
 
     if type == 'piaic_admin':
 

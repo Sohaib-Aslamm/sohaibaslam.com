@@ -71,6 +71,22 @@
               <textarea class="form-control" name="editor1">{{ form.description }}</textarea>
                 </div>
             </div>
+           <div class="row mb-3">
+                         <label>Edit Files <span class="text-danger">*</span></label>
+                         <select class="form-control" name="edit_file" id="editFiles1">
+                             <option value="False">NO</option>
+                             <option value="True">YES</option>
+
+                         </select>
+
+                    <div id="editFiles">
+                      <div class="row mt-4 container">
+                         <label>Edit Files:</label>
+                         <input type="file" class="form-control"  name="icon">
+                      </div>
+                    </div>
+
+            </div>
 
       </div>
 
@@ -84,4 +100,7 @@
 </div>
 
 
+
+
 {% endblock content %}
+
