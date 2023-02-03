@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+{% load i18n%}
 
 {% load static %}
 
@@ -147,10 +147,11 @@
 
                         <div class="col-md-8">
                         <div class="content">
+                            {% blocktrans %}
                             <h4 class="text-white"> SOHAIB_ASLAM</h4>
                             <h5 class="common-color">Python | Django | Postgres | Metaverse Researcher</h5>
                             <p class="text-white">Working in Python and frameworks also studying Metaverse at PIAIC</p>
-
+                            {% endblocktrans %}
                               <div class="quality-video-section">
                             <div class="quality-video">
                                  <a href="#" class="mfp-video play-now">
@@ -304,6 +305,7 @@
 <!-- LOADING AREA  END ====== -->
 </div>
 </body>
+
 
 <!-- JAVASCRIPT  FILES ========================================= -->
 <script  src={% static 'Assets/dronza_js/jquery-2.2.0.min.js' %}></script><!-- JQUERY.MIN JS -->
