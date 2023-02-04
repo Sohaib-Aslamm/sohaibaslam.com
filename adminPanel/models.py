@@ -101,7 +101,6 @@ class Recommendations(models.Model):
     description = models.CharField(max_length=1000, default="")
 
 
-
 class SocialMedia(models.Model):
     sNo = models.AutoField(primary_key=True)
     email = models.EmailField(max_length=100, default="")
@@ -126,7 +125,6 @@ class userBlog(models.Model):
     created_at = models.DateTimeField(default=django.utils.timezone.now())
 
 
-
 class blog_Review(models.Model):
     sNo = models.AutoField(primary_key=True)
     author = models.CharField(max_length=200, default="")
@@ -135,7 +133,6 @@ class blog_Review(models.Model):
     post = models.ForeignKey(userBlog, on_delete=models.CASCADE)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
     timestamp = models.DateTimeField(default=django.utils.timezone.now)
-
 
 
 class hello(models.Model):
@@ -171,7 +168,6 @@ class PIAIC_Attachments(models.Model):
     files = models.FileField(upload_to=upload_design_to)
 
 
-
 class PIAIC_Notifications(models.Model):
     sNo = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, default="")
@@ -184,7 +180,6 @@ class PIAIC_Notifications(models.Model):
     created_at = models.DateTimeField(default=django.utils.timezone.now())
 
 
-
 class PIAIC_Review(models.Model):
     sNo = models.AutoField(primary_key=True)
     author = models.CharField(max_length=200, default="")
@@ -193,7 +188,6 @@ class PIAIC_Review(models.Model):
     post = models.ForeignKey(PIAIC, on_delete=models.CASCADE)
     parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True)
     timestamp = models.DateTimeField(default=django.utils.timezone.now)
-
 
 
 class PIAIC_NOTIFI_Review(models.Model):

@@ -5,7 +5,8 @@ urlpatterns = [
     path('', views.sohaib_Home, name="Home"),
     path('Home', views.sohaib_Home, name="Home"),
     path('Portfolio', views.Portfolio, name="Portfolio"),
-    path('blog', views.blogHome, name="blog"),
+    path('blog', views.blog_list, name="blog"),
+    path('search_blog', views.search_blog, name="search_blog"),
     path('sayhello', views.sayhello, name="sayhello"),
     path('PIAIC', views.PIAIC_Attachs, name="PIAIC"),
     path('PIAIC_QUERY', views.PIAIC_QUERY, name="PIAIC_QUERY"),
@@ -14,5 +15,5 @@ urlpatterns = [
     path('thank_you', views.thank_you, name="thank_you"),
     path('thank_you_notif', views.thank_you_notif, name="thank_you_notif"),
     path('ViewDetail/<int:sNo>/<str:type>', views.Detail_Record, name="ViewDetail"),
-    path('addReview', views.blogReview, name="addReview"),
+    path('blogReview', views.blogReview, name="blogReview"),
     ]

@@ -2,7 +2,7 @@ from adminPanel.forms import AboutForm, ExperienceForm, EducationForm, LangSkill
     RecommendationsForm, SocialMediaForm, UserForm
 
 from adminPanel.models import About, Experience, Education, LangSkill, Portfolios, Recommendations, SocialMedia,\
-hello, userBlog, PIAIC, PIAIC_Attachments, PIAIC_Notifications, PIAIC_ICONS
+hello, userBlog, blog_Review, PIAIC, PIAIC_Attachments, PIAIC_Notifications, PIAIC_ICONS
 
 from django.contrib import messages
 from django.core.paginator import Paginator
@@ -308,6 +308,10 @@ def PIAIC_Notifi(request):
     return render(request, 'adminPIAIC_Notifications.html', {'all_data': all_data})
 
 
+def user_comments(request):
+    comment_data = blog_Review.objects.all()
+    return render(request, 'comments.html', {'comment_data': comment_data})
+
 # <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Delete Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
@@ -343,7 +347,6 @@ def Delete(request, id, type):
         DELLREC.delete()
         return redirect('/recommendation')
 
-
     if type == 'socialMedia':
         DELLSM = SocialMedia.objects.get(id=id)
         DELLSM.delete()
@@ -354,26 +357,28 @@ def Delete(request, id, type):
         DELLMSG.delete()
         return redirect('/admin')
 
-
     if type == 'blog':
         DeleteRecord = userBlog.objects.get(sNo=id)
         DeleteRecord.delete()
         return redirect('/adminblog')
-
 
     if type == 'piaic_admin':
         DeleteRecord = PIAIC.objects.get(sNo=id)
         DeleteRecord.delete()
         return redirect('/adminPIAIC')
 
-
     if type == 'piaic_notification':
         DeleteRecord = PIAIC_Notifications.objects.get(sNo=id)
         DeleteRecord.delete()
         return redirect('/adminPIAIC_Notifications')
 
-# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Update Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    if type == 'user_comment':
+        DeleteRecord = blog_Review.objects.get(sNo=id)
+        DeleteRecord.delete()
+        return redirect('/user_comments')
 
+
+# <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Update Functions >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 
 @login_required(login_url='/user_login')

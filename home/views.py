@@ -2,13 +2,12 @@ from django.shortcuts import render, redirect, HttpResponseRedirect
 from adminPanel.models import About, Experience, Education, LangSkill, Portfolios, Recommendations, SocialMedia, \
     userBlog, blog_Review, hello, PIAIC, PIAIC_Attachments, PIAIC_Review, PIAIC_Notifications, PIAIC_NOTIFI_Review, \
     PIAIC_ICONS
-
+from django.db.models import Q
 from django.core.paginator import Paginator
 from django.contrib import messages
 
 
 # Create your views here.
-
 
 
 def sohaib_Home(request):
@@ -31,17 +30,34 @@ def Portfolio(request):
     return render(request, 'portfolio.html', data)
 
 
-def blogHome(request):
+def blog_list(request):
     BLOGDATA = userBlog.objects.all().order_by('-sNo')
-    paginator = Paginator(BLOGDATA, 9)
+    paginator = Paginator(BLOGDATA, 5)
     pageNo = request.GET.get('page')
     BLOGDATAFINAL = paginator.get_page(pageNo)
     totalPages = BLOGDATAFINAL.paginator.num_pages
     SMDT = SocialMedia.objects.all()
-    RCPST = userBlog.objects.all().order_by('-sNo')[:2]
+    RCPST = userBlog.objects.all().order_by('-sNo')[10:16]
+    footer_recent = userBlog.objects.all().order_by('-sNo')[:2]
     context = {'BLOGDATA': BLOGDATAFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
-               'RCPST': RCPST, 'SMDT': SMDT}
-    return render(request, 'blog.html', context)
+               'RCPST': RCPST, 'SMDT': SMDT, 'footer_recent': footer_recent}
+    return render(request, 'blog_list.html', context)
+
+
+def search_blog(request):
+    if request.method == 'POST':
+        search_keyword = request.POST.get('search_keyword')
+        BLOGDATA = userBlog.objects.filter(Q(title__icontains=search_keyword) | Q(heading__icontains=search_keyword) | Q(description__icontains=search_keyword)).order_by('-sNo')
+        paginator = Paginator(BLOGDATA, 5)
+        pageNo = request.GET.get('page')
+        BLOGDATAFINAL = paginator.get_page(pageNo)
+        totalPages = BLOGDATAFINAL.paginator.num_pages
+        SMDT = SocialMedia.objects.all()
+        RCPST = userBlog.objects.all().order_by('-sNo')[10:16]
+        footer_recent = userBlog.objects.all().order_by('-sNo')[:2]
+        context = {'BLOGDATA': BLOGDATAFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
+                   'RCPST': RCPST, 'SMDT': SMDT, 'footer_recent': footer_recent}
+        return render(request, 'blog_list.html', context)
 
 
 def blogReview(request):
@@ -53,8 +69,7 @@ def blogReview(request):
         post_id = userBlog.objects.get(sNo=postSno)
         sv = blog_Review(author=author, email=email, comment=comment, post=post_id)
         sv.save()
-
-        return redirect('/blog')
+        return redirect(f'/ViewDetail/{postSno}/blogDetail')
 
 
 def sayhello(request):
@@ -131,8 +146,9 @@ def Detail_Record(request, sNo, type):
         rdPost = userBlog.objects.filter(sNo=sNo)
         coments = blog_Review.objects.filter(post__in=rdPost).order_by('-sNo')
         SMDT = SocialMedia.objects.all()
-        RCPST = userBlog.objects.all().order_by('-sNo')[:2]
-        context = {'rdPost': rdPost, 'RCPST': RCPST, 'SMDT': SMDT, 'coments': coments}
+        RCPST = userBlog.objects.all().order_by('-sNo')[10:16]
+        footer_recent = userBlog.objects.all().order_by('-sNo')[:2]
+        context = {'rdPost': rdPost, 'RCPST': RCPST, 'SMDT': SMDT, 'coments': coments, 'footer_recent': footer_recent}
         return render(request, 'read_post.html', context)
 
     if type == 'Attachment_Detail':
@@ -145,7 +161,6 @@ def Detail_Record(request, sNo, type):
         context = {'readAttachment': readAttachment, 'Attachments': Attachments, 'piaic_query': piaic_query,
                    'ICONS': ICONS, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'Read_Attachment.html', context)
-
 
     if type == 'Notification_Detail':
         readAttachment = PIAIC_Notifications.objects.filter(sNo=sNo)
