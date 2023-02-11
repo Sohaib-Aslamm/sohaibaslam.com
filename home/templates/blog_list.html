@@ -185,7 +185,7 @@
 
                             <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 blog-list-style-outer">
                                 <!--Block one-->
-
+                                     {% if BLOGDATA %}
                                       {% for post in BLOGDATA %}
                                 <div class="blog-post blog-style-1 blog-list-style">
 									<div class="wt-post-media wt-img-effect zoom-slow">
@@ -209,6 +209,23 @@
                                    </div>
                                 </div>
                                 {% endfor %}
+                             {% else %}
+
+                            <div class="row text-center mt-5">
+                                <h2 class="text-greeno"><i class="fa fa-blog"></i>Sorry! No post found</h2>
+                                <p class="h5">Your search did not match any documents.</p>
+                            </div>
+                            <div>
+                                <ul>
+                                    <strong>Suggestions:</strong>
+                                    <li>Make sure that all words are spelled correctly</li>
+                                    <li>Try different keywords</li>
+                                    <li>Try more general keywords</li>
+                                    <li>Try fewer keywords</li>
+                                </ul>
+                            </div>
+
+                        {% endif %}
 
                             </div>
 
@@ -244,6 +261,7 @@
                                             </div>
                                             <div class="section-content">
                                                 <div class="widget-post-bx">
+                                                {% if RCPST %}
                                                      {% for data in RCPST %}
                                                     <div class="widget-post clearfix">
                                                         <div class="wt-post-media">
@@ -261,6 +279,9 @@
                                                         </div>
                                                     </div>
                                                     {% endfor %}
+                                                 {% else %}
+                                            <h6 class="ml-3"><strong>No Post Available</strong></h6>
+                                        {% endif %}
                                                 </div>
                                             </div>
                                         </div>
