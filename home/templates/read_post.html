@@ -173,7 +173,7 @@
                                   {% for data in rdPost %}
                                 <div class="blog-post blog-style-1">
                                     <div class="wt-post-media wt-img-effect zoom-slow">
-                                        <a href="javascript:;"><img src={{ data.Icon.url }} alt="{{ data.tags }}"></a>
+                                        <img src={{ data.Icon.url }} alt="{{ data.tags }}">
                                     </div>
                                     <div class="wt-post-info  bg-white p-t30">
                                         <div class="wt-post-meta ">
@@ -315,7 +315,7 @@
                                                      {% for data in RCPST %}
                                                     <div class="widget-post clearfix">
                                                         <div class="wt-post-media">
-                                                            <img src="{{ data.Icon.url }}" alt="">
+                                                            <a href="/ViewDetail/{{ data.sNo }}/blogDetail"> <img src="{{ data.Icon.url }}" alt=""></a>
                                                         </div>
                                                         <div class="wt-post-info">
                                                             <div class="wt-post-meta">
