@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a5bce9ef-6fa8-4538-8886-620b1f2d0b3c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/templates/baseAdmin.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/blog_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/blog_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,7 +83,12 @@
       <workItem from="1675593328849" duration="4000" />
       <workItem from="1675607219127" duration="760000" />
       <workItem from="1676112868124" duration="242000" />
-      <workItem from="1676113660574" duration="1792000" />
+      <workItem from="1676113660574" duration="2119000" />
+      <workItem from="1676479938373" duration="326000" />
+      <workItem from="1676480565803" duration="402000" />
+      <workItem from="1676522496753" duration="47000" />
+      <workItem from="1684350690442" duration="86000" />
+      <workItem from="1684353465254" duration="163000" />
     </task>
     <servers />
   </component>
