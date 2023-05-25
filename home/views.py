@@ -31,16 +31,25 @@ def Portfolio(request):
 
 
 def blog_list(request):
-    BLOGDATA = userBlog.objects.all().order_by('-sNo')
-    paginator = Paginator(BLOGDATA, 5)
-    pageNo = request.GET.get('page')
-    BLOGDATAFINAL = paginator.get_page(pageNo)
-    totalPages = BLOGDATAFINAL.paginator.num_pages
+    paginator = Paginator(userBlog.objects.order_by('-sNo'), 5)
+    page_number = request.GET.get('page')
+    blog_data = paginator.get_page(page_number)
+    total_pages = blog_data.paginator.num_pages
+
+    recent_posts = userBlog.objects.order_by('-sNo')[10:16]
+    footer_recent = userBlog.objects.order_by('-sNo')[:2]
+
     SMDT = SocialMedia.objects.all()
-    RCPST = userBlog.objects.all().order_by('-sNo')[10:16]
-    footer_recent = userBlog.objects.all().order_by('-sNo')[:2]
-    context = {'BLOGDATA': BLOGDATAFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
-               'RCPST': RCPST, 'SMDT': SMDT, 'footer_recent': footer_recent}
+
+    context = {
+        'BLOGDATA': blog_data,
+        'lastPage': total_pages,
+        'pageList': range(1, total_pages + 1),
+        'RCPST': recent_posts,
+        'footer_recent': footer_recent,
+        'SMDT': SMDT,
+    }
+
     return render(request, 'blog_list.html', context)
 
 
@@ -57,6 +66,36 @@ def search_blog(request):
         footer_recent = userBlog.objects.all().order_by('-sNo')[:2]
         context = {'BLOGDATA': BLOGDATAFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
                    'RCPST': RCPST, 'SMDT': SMDT, 'footer_recent': footer_recent}
+        return render(request, 'blog_list.html', context)
+
+
+def search_blog(request):
+    if request.method == 'POST':
+        search_keyword = request.POST.get('search_keyword')
+        blog_data = userBlog.objects.filter(
+            Q(title__icontains=search_keyword) |
+            Q(heading__icontains=search_keyword) |
+            Q(description__icontains=search_keyword)
+        ).order_by('-sNo')
+
+        paginator = Paginator(blog_data, 5)
+        page_number = request.GET.get('page')
+        blog_data_final = paginator.get_page(page_number)
+        total_pages = blog_data_final.paginator.num_pages
+
+        recent_posts = userBlog.objects.order_by('-sNo')[10:16]
+        footer_recent = userBlog.objects.order_by('-sNo')[:2]
+
+        SMDT = SocialMedia.objects.all()
+
+        context = {
+            'BLOGDATA': blog_data_final,
+            'lastPage': total_pages,
+            'pageList': range(1, total_pages + 1),
+            'RCPST': recent_posts,
+            'footer_recent': footer_recent,
+            'SMDT': SMDT,
+        }
         return render(request, 'blog_list.html', context)
 
 
