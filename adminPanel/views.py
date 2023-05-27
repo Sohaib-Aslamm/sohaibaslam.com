@@ -240,25 +240,20 @@ def social_media(request):
 @login_required(login_url='/user_login')
 def adminblog(request):
     if request.method == 'POST':
-        TIT = request.POST.get('title')
-        HD = request.POST.get('heading')
-        TGS = request.POST.get('tags')
-        QT = request.POST.get('quote')
-        QTBY = request.POST.get('quote_by')
-        CRA = request.POST.get('created_at')
-        DSC = request.POST.get('editor1')
-        ICN = request.FILES['icon']
-        reg = userBlog(title=TIT, heading=HD, tags=TGS, quote=QT, quote_by=QTBY, description=DSC, Icon=ICN,
-                       created_at=CRA)
+        reg = userBlog(title=request.POST['title'], heading=request.POST['heading'], tags=request.POST['tags'],
+                       quote=request.POST['quote'], quote_by=request.POST['quote_by'],
+                       description=request.POST['editor1'],
+                       Icon=request.FILES['icon'], created_at=request.POST['created_at'])
         reg.save()
-
-    BLGdata = userBlog.objects.all().order_by('-sNo')
-    paginator = Paginator(BLGdata, 10)
-    pageNo = request.GET.get('page')
-    BLGdataFINAL = paginator.get_page(pageNo)
-    totalPages = BLGdataFINAL.paginator.num_pages
-    context = {'BLGdata': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
-    return render(request, 'adminBlog.html', context)
+        return redirect('/adminblog')
+    else:
+        BLGdata = userBlog.objects.all().order_by('-sNo')
+        paginator = Paginator(BLGdata, 10)
+        pageNo = request.GET.get('page')
+        BLGdataFINAL = paginator.get_page(pageNo)
+        totalPages = BLGdataFINAL.paginator.num_pages
+        context = {'BLGdata': BLGdataFINAL, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)]}
+        return render(request, 'adminBlog.html', context)
 
 
 def adminPIAIC(request):
