@@ -31,13 +31,13 @@ def Portfolio(request):
 
 
 def blog_list(request):
-    paginator = Paginator(userBlog.objects.order_by('-sNo'), 5)
+    paginator = Paginator(userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo'), 5)
     page_number = request.GET.get('page')
     blog_data = paginator.get_page(page_number)
     total_pages = blog_data.paginator.num_pages
 
-    recent_posts = userBlog.objects.order_by('-sNo')[10:16]
-    footer_recent = userBlog.objects.order_by('-sNo')[:2]
+    recent_posts = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[10:16]
+    footer_recent = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[:2]
 
     SMDT = SocialMedia.objects.all()
 
@@ -60,15 +60,15 @@ def search_blog(request):
             Q(title__icontains=search_keyword) |
             Q(heading__icontains=search_keyword) |
             Q(description__icontains=search_keyword)
-        ).order_by('-sNo')
+        ).values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')
 
         paginator = Paginator(blog_data, 5)
         page_number = request.GET.get('page')
         blog_data_final = paginator.get_page(page_number)
         total_pages = blog_data_final.paginator.num_pages
 
-        recent_posts = userBlog.objects.order_by('-sNo')[10:16]
-        footer_recent = userBlog.objects.order_by('-sNo')[:2]
+        recent_posts = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[10:16]
+        footer_recent = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[:2]
 
         SMDT = SocialMedia.objects.all()
 
