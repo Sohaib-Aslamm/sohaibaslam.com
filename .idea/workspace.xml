@@ -2,11 +2,61 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bce9ef-6fa8-4538-8886-620b1f2d0b3c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/adminPanel/forms/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/forms/about.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/forms/accounts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/forms/education.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/forms/experience.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/forms/language_skills.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/forms/portfolio.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/forms/recommendations.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/forms/seo_tags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/forms/social_media.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/about.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/blog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/education.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/experience.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/language_skills.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/piaic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/portfolio.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/recommendations.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/say_hello.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/seo_tags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/social_media.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/templates/Update/UpdateSEOTags.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/templates/seoTags.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/about.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/accounts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/blog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/delete.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/education.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/experience.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/home.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/piaic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/portfolio.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/recommendations.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/seo_tags.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/skills_language.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/socila_media.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/update.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/view_messages.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/blog.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/home_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/piaic.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/portfolio.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/record_detail.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/say_hello.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/home/views/thank_you.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminPanel/templates/adminBlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/templates/adminBlog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adminPanel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/blog_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/blog_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/templates/baseAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +70,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -38,13 +89,25 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/adminPanel/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\PycharmProjects\sohaibaslam.com\adminPanel\views" />
+      <recent name="C:\Users\hp\PycharmProjects\sohaibaslam.com\adminPanel\templates\Update" />
+      <recent name="C:\Users\hp\PycharmProjects\sohaibaslam.com\adminPanel\templates" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\PycharmProjects\sohaibaslam.com\adminPanel\models" />
+      <recent name="C:\Users\hp\PycharmProjects\sohaibaslam.com\home\views" />
+      <recent name="C:\Users\hp\PycharmProjects\sohaibaslam.com\adminPanel\views" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="sohaibaslam.com" type="Python.DjangoServer" factoryName="Django server">
@@ -99,7 +162,8 @@
       <workItem from="1685051128529" duration="421000" />
       <workItem from="1685214281500" duration="193000" />
       <workItem from="1685218892900" duration="65000" />
-      <workItem from="1685272831257" duration="3198000" />
+      <workItem from="1685272831257" duration="5355000" />
+      <workItem from="1685602238607" duration="6034000" />
     </task>
     <servers />
   </component>

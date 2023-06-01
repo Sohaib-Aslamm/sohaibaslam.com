@@ -14,6 +14,7 @@ urlpatterns = [
     path('user_comments', views.user_comments, name="user_comments"),
     path('adminPIAIC', views.adminPIAIC, name="adminPIAIC"),
     path('adminPIAIC_Notifications', views.PIAIC_Notifi, name="adminPIAIC_Notifications"),
+    path('seotags', views.SEOTags, name="seotags"),
     path('user_login', views.user_login, name="user_login"),
     path('user_logout', views.user_logout, name="user_logout"),
 
