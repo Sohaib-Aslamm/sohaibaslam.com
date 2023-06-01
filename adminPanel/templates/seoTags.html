@@ -43,6 +43,7 @@
     <tr>
       <th scope="col">Title</th>
       <th scope="col">Page</th>
+      <th scope="col">Canonical</th>
       <th scope="col">Description</th>
       <th scope="col">Tags</th>
       <th scope="col" class="text-center">Operations</th>
@@ -53,6 +54,7 @@
     <tr>
       <td>{{ data.title }}</td>
       <td>{{ data.page }}</td>
+      <td>{{ data.canonical_link }}</td>
       <td>{{ data.description }}</td>
       <td>{{ data.tags }}</td>
      <td class="text-center">
@@ -91,6 +93,12 @@
                  <div class="col-6">
                     <label class="white">Page name</label>
                     {{ form.page }}
+                </div>
+            </div>
+          <div class="row mb-3">
+               <div class="col-12">
+                      <label class="white">Canonical</label><br>
+                    {{ form.canonical_link }}
                 </div>
             </div>
            <div class="row mb-3">

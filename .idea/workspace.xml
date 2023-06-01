@@ -2,10 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bce9ef-6fa8-4538-8886-620b1f2d0b3c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/adminPanel/redirect_middleware.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/forms/seo_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/forms/seo_tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/models/seo_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/models/seo_tags.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/templates/Update/UpdateSEOTags.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/templates/Update/UpdateSEOTags.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/templates/seoTags.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/templates/seoTags.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/views/seo_tags.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/views/seo_tags.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/blog_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/blog_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/home_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/piaic_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/piaic_base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/portfolio.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/portfolio.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/read_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/read_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/thank_you_notification.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/thank_you_notification.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/thankyou.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/thankyou.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +47,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/adminPanel/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/adminPanel" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -48,6 +57,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\hp\PycharmProjects\sohaibaslam.com\adminPanel" />
       <recent name="C:\Users\hp\PycharmProjects\sohaibaslam.com\adminPanel\views" />
       <recent name="C:\Users\hp\PycharmProjects\sohaibaslam.com\adminPanel\templates\Update" />
       <recent name="C:\Users\hp\PycharmProjects\sohaibaslam.com\adminPanel\templates" />
@@ -112,7 +122,8 @@
       <workItem from="1685214281500" duration="193000" />
       <workItem from="1685218892900" duration="65000" />
       <workItem from="1685272831257" duration="5355000" />
-      <workItem from="1685602238607" duration="9398000" />
+      <workItem from="1685602238607" duration="10055000" />
+      <workItem from="1685644519289" duration="545000" />
     </task>
     <servers />
   </component>
