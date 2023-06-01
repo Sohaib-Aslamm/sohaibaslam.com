@@ -9,17 +9,18 @@
     <!-- META -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <meta name="description" content="Computer Science graduate specializing in computer vision, Django, React, Python, mapping, GIS, and property software development. Explore Sohaib Aslam's portfolio and expertise in computer vision, web development, front-end, mapping, GIS, property software development, Python, AI, and army projects.">
-
     <meta name="author" content="sohaib aslam">
+    {% for seo in SEOTAGS %}
+    {% block title %}<title>{{ seo.title }}</title>{% endblock title %}
+    <meta name="description" content="{{ seo.description }}">
+    <meta name="keywords" content="{{ seo.tags }}">
+    {% endfor %}
     <meta name="robots" content="index, follow">
 
     <!-- FAVICONS ICON -->
     <link rel="icon" href={% static 'Assets/dronza_images/favicon.html' %} type="image/x-icon" />
     <link rel="shortcut icon" type="image/x-icon" href={% static 'Assets/dronza_images/favicon.png' %} />
 
-    <!-- PAGE TITLE HERE -->
-   {% block title %} <title></title> {% endblock title %}
 
     <!-- MOBILE SPECIFIC -->
     <meta name="viewport" content="width=device-width, initial-scale=1">

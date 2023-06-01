@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from adminPanel.models import SocialMedia, userBlog, blog_Review
+from adminPanel.models import SocialMedia, userBlog, blog_Review, seoTags
 from django.db.models import Q
 from django.core.paginator import Paginator
 
@@ -14,6 +14,7 @@ def blog_list(request):
     footer_recent = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[:2]
 
     SMDT = SocialMedia.objects.all()
+    SEOTAGS = seoTags.objects.filter(page='blog_page')
 
     context = {
         'BLOGDATA': blog_data,
@@ -22,6 +23,7 @@ def blog_list(request):
         'RCPST': recent_posts,
         'footer_recent': footer_recent,
         'SMDT': SMDT,
+        'SEOTAGS': SEOTAGS
     }
 
     return render(request, 'blog_list.html', context)

@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from adminPanel.models import SocialMedia, userBlog, PIAIC, PIAIC_Review, PIAIC_Notifications, PIAIC_NOTIFI_Review
+from adminPanel.models import SocialMedia, userBlog, PIAIC, PIAIC_Review, PIAIC_Notifications, PIAIC_NOTIFI_Review, \
+    seoTags
 from django.core.paginator import Paginator
 
 
@@ -11,8 +12,9 @@ def PIAIC_Attachs(request):
     totalPages = Final_Attachments.paginator.num_pages
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
+    SEOTAGS = seoTags.objects.filter(page='piaic_page')
     context = {'Final_Attachments': Final_Attachments, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
-               'RCPST': RCPST, 'SMDT': SMDT}
+               'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS}
     return render(request, 'PIAIC.html', context)
 
 
@@ -36,8 +38,9 @@ def PIAIC_NOTIFI(request):
     totalPages = Final_Attachments.paginator.num_pages
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
+    SEOTAGS = seoTags.objects.filter(page='piaic_notification_page')
     context = {'Final_Attachments': Final_Attachments, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
-               'RCPST': RCPST, 'SMDT': SMDT}
+               'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS}
     return render(request, 'piaic_notifications.html', context)
 
 

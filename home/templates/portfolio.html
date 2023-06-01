@@ -8,7 +8,11 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title>Portfolio</title>
+		{% for seo in SEOTAGS %}
+        {% block title %}<title>{{ seo.title }}</title>{% endblock title %}
+        <meta name="description" content="{{ seo.description }}">
+        <meta name="keywords" content="{{ seo.tags }}">
+        {% endfor %}
 
 
 		<!-- Favicon -->
