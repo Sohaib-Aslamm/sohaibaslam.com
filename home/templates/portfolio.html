@@ -536,14 +536,14 @@
 									<div class="col-lg-6 mb-5 mb-lg-0">
 										<article class="thumb-info custom-thumb-info-2 custom-box-shadow-1 appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="0" data-appear-animation-duration="1s">
 											<div class="thumb-info-wrapper">
-												<a href="#">
+												<a href="/ViewDetail/{{ bld.sNo }}/blogDetail">
 													<img src="{{ bld.Icon.url }}" alt class="img-fluid" />
 												</a>
 											</div>
 											<div class="thumb-info-caption">
 												<div class="thumb-info-caption-text">
 													<h4 class="mb-2">
-														<a href="#" class="text-decoration-none text-color-dark font-weight-semibold">
+														<a href="/ViewDetail/{{ bld.sNo }}/blogDetail" class="text-decoration-none text-color-dark font-weight-semibold">
 															{{ bld.title }}
 														</a>
 													</h4>
@@ -556,17 +556,19 @@
 													</div>
 													<div class="col-auto custom-blog-post-share text-uppercase font-weight-semibold text-color-dark text-2">
 														Share:
+                                                         {% for sm in social_media %}
 														<ul class="mb-0">
 															<li>
-																<a class="item-facebook text-decoration-none text-uppercase" href="#" title="Share on Facebook">Facebook</a>
+																<a class="item-facebook text-decoration-none text-uppercase" href="{{ sm.linkedin }}" title="Share on Linkedin">Linkedin</a>
 															</li>
 															<li>
-																<a class="item-twitter text-decoration-none text-uppercase" href="#" title="Share on Twitter">Twitter</a>
+																<a class="item-twitter text-decoration-none text-uppercase" href="{{ sm.website }}" title="Share on Website">Website</a>
 															</li>
 															<li>
-																<a class="item-google-plus text-decoration-none text-uppercase" href="#" title="Share on Google Plus">Google Plus</a>
+																<a class="item-google-plus text-decoration-none text-uppercase" href="{{ sm.github }}" title="Share on Github">Github</a>
 															</li>
 														</ul>
+                                                             {% endfor %}
 													</div>
 												</div>
 											</div>
@@ -728,5 +730,15 @@
 		<script src="{% static 'Assets/js/theme.init.js' %}"></script>
 	<script defer src="{% static 'Assets/vendor/jquery/jquery.min.js' %}" data-cf-beacon='{"rayId":"68013d212d9d0b74","version":"2021.8.0","r":1,"token":"03fa3b9eb60b49789931c4694c153f9b","si":10}'></script>
 <script defer src="{% static 'Assets/static.cloudflareinsights.com/beacon.min.js' %}" data-cf-beacon='{"rayId":"68013d212d9d0b74","version":"2021.8.0","r":1,"token":"03fa3b9eb60b49789931c4694c153f9b","si":10}'></script>
-<!-- Mirrored from www.okler.net/previews/porto/9.1.0/demo-resume-red.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 17 Aug 2021 07:46:03 GMT -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4624S4W40X"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-4624S4W40X');
+</script>
+
 </html>
