@@ -1,3 +1,4 @@
+from .home_page import *
 from .about import *
 from .experience import *
 from .portfolio import *

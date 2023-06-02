@@ -3,6 +3,7 @@ from adminPanel import views
 
 urlpatterns = [
     path('admin', views.adminHome, name="admin"),
+    path('main_page', views.Main_Page, name="main_page"),
     path('about', views.adminAbout, name="about"),
     path('experience', views.adminExperience, name="experience"),
     path('education', views.adminEducation, name="education"),

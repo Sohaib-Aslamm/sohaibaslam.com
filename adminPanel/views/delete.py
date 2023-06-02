@@ -1,5 +1,5 @@
 from adminPanel.models import About, Experience, Education, LangSkill, Portfolios, Recommendations, SocialMedia,\
-hello, userBlog, blog_Review, PIAIC, PIAIC_Notifications, seoTags
+hello, userBlog, blog_Review, PIAIC, PIAIC_Notifications, seoTags, MainPage
 
 
 from django.shortcuts import redirect
@@ -9,6 +9,11 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/user_login')
 def Delete(request, id, type):
+    if type == 'main_page':
+        DELLMNP = MainPage.objects.get(id=id)
+        DELLMNP.delete()
+        return redirect('/main_page')
+
     if type == 'about':
         DELLABT = About.objects.get(id=id)
         DELLABT.delete()

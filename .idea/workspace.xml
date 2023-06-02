@@ -2,8 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a5bce9ef-6fa8-4538-8886-620b1f2d0b3c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/adminPanel/forms/main_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/models/home_page.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/templates/Update/updateMainPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/templates/adminMainPage.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/adminPanel/views/main_page.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/forms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/forms/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/templates/baseAdmin.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/templates/baseAdmin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/views/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/views/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/views/delete.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/views/delete.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/views/update.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/views/update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/home_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/home_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/main_Home.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/main_Home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/home_page.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/home_page.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -114,7 +128,7 @@
       <workItem from="1685602238607" duration="10055000" />
       <workItem from="1685644519289" duration="1950000" />
       <workItem from="1685682329308" duration="4000" />
-      <workItem from="1685725198118" duration="1470000" />
+      <workItem from="1685725198118" duration="5202000" />
     </task>
     <servers />
   </component>

@@ -24,14 +24,10 @@
                     <div class="card mt-5">
                         <div class="card-body shadow-lg rounded">
                            <h4 class="common-color">About Me:</h4>
-                            <p>I am a computer science graduate from well known University.
-                                Currently working as a senior python Django developer.
-                                Working on Land record digitization with Board of Revenue Gwadar and Defense Housing Authority
-                               </p>
-                            <p>I belongs to capital of Pakistan "ISLAMABAD". I have done few internship in python.
-                                Python is my passion and the next goal is computer vision expert,
-                                on other hand doing self research at metaverse technology,
-                                Joined PIAIC Metaverse program.</p>
+                            {% for data in main_page_data %}
+                                        <p>{{ data.description_1 }}</p>
+                                        <p>{{ data.description_2 }}</p>
+                            {% endfor %}
                         </div>
                     </div>
 

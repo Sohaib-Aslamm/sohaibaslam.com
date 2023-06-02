@@ -1,8 +1,8 @@
-from adminPanel.forms import AboutForm, ExperienceForm, EducationForm, LangSkillForm, PortfoliosForm,\
+from adminPanel.forms import MainPageForm, AboutForm, ExperienceForm, EducationForm, LangSkillForm, PortfoliosForm,\
      RecommendationsForm, SocialMediaForm, SEOTagsForm
 
 from adminPanel.models import About, Experience, Education, LangSkill, Portfolios, Recommendations, SocialMedia,\
-    userBlog, PIAIC, PIAIC_Notifications, seoTags
+    userBlog, PIAIC, PIAIC_Notifications, seoTags, MainPage
 
 from django.shortcuts import render, redirect
 
@@ -11,6 +11,18 @@ from django.contrib.auth.decorators import login_required
 
 @login_required(login_url='/user_login')
 def Update(request, id, type):
+    if type == 'main_page':
+        if request.method =='POST':
+            UPMNP = MainPage.objects.get(id=id)
+            MNPFM = MainPageForm(request.POST, request.FILES, instance=UPMNP)
+            if MNPFM.is_valid():
+                MNPFM.save()
+                return redirect('/main_page')
+        else:
+            UPMNP = MainPage.objects.get(id=id)
+            MNPFM = MainPageForm(instance=UPMNP)
+        return render(request, 'Update/updateMainPage.html', {'form': MNPFM})
+
     if type == 'about':
         if request.method =='POST':
             UPABT = About.objects.get(id=id)

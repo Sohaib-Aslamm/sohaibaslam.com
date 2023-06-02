@@ -1,3 +1,4 @@
+from .main_page import *
 from .accounts import *
 from .home import *
 from .seo_tags import *

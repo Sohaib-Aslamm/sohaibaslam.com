@@ -7,3 +7,4 @@ from.portfolio import *
 from.recommendations import *
 from.social_media import *
 from.seo_tags import *
+from.main_page import *

@@ -137,21 +137,20 @@
         <div class="page-content">
 
             <!-- INNER PAGE BANNER -->
-            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static  'Assets/dronza_images/slide1.jpg'%});">
-{#            	<div class="overlay-main site-bg-primary opacity-09"></div>#}
+            <div class="wt-bnr-inr overlay-wraper bg-center" style="background-image:url({% static  'Assets/dronza_images/slide1.jpg' %});">
                 <div class="container">
                     <div class="row">
 
                         <div class="col-md-8">
                         <div class="content">
-                            {% blocktrans %}
-                            <h4 class="text-white"> SOHAIB_ASLAM</h4>
-                            <h5 class="common-color">Python | Django | Postgres | Metaverse Researcher</h5>
-                            <p class="text-white">Working in Python and frameworks also studying Metaverse at PIAIC</p>
-                            {% endblocktrans %}
+                                {% for data in main_page_data %}
+                            <h4 class="text-white">{{ data.name }}</h4>
+                            <h5 class="common-color">{{ data.skills }}</h5>
+                            <p class="text-white">{{ data.tag_line }}</p>
+                                {% endfor %}
                               <div class="quality-video-section">
                             <div class="quality-video">
-                                 <a href="#" class="mfp-video play-now">
+                                 <a href="/" class="mfp-video play-now">
                            <i class="icon fa fa-play"></i>
                                     <span class="ripple"></span>
                                 </a>
