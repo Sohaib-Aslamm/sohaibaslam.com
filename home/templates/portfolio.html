@@ -274,15 +274,15 @@
 
 									<h2 class="text-color-dark font-weight-extra-bold text-uppercase">About Me</h2>
 
-                                    <p>{{ data.description }}</p>
+                                    {% for mpgData in main_page_data %}
+                                    <p>{{ mpgData.description_1 }}</p>
 									<div class="about-me-more" id="aboutMeMore">
-										<p>I belongs to capital of Pakistan "ISLAMABAD".
-                                            I have done few internship in python. Python is my passion
-                                            and the next goal is computer vision expert, on other hand
-                                            doing self research at metaverse technology, Joined PIAIC Metaverse program.</p>
+										<p>{{ mpgData.description_2 }}</p>
 
 									
 									</div>
+                                        {% endfor %}
+
 
 									<a id="aboutMeMoreBtn" class="btn btn-tertiary text-uppercase custom-btn-style-1 text-1" href="#">View More</a>
 
