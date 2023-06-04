@@ -268,7 +268,7 @@
                                                      {% for data in RCPST %}
                                                     <div class="widget-post clearfix">
                                                         <div class="wt-post-media">
-                                                            <a href="/blog/{{ post.slug }}"><img src="{{ MEDIA_URL }}{{ data.Icon }}" alt=""></a>
+                                                            <a href="/blog/{{ data.slug }}"><img src="{{ MEDIA_URL }}{{ data.Icon }}" alt=""></a>
                                                         </div>
                                                         <div class="wt-post-info">
                                                             <div class="wt-post-meta">
@@ -277,7 +277,7 @@
                                                                 </ul>
                                                             </div>
                                                             <div class="wt-post-header">
-                                                                <span class="post-title"> <a href="/blog/{{ post.slug }}">{{ data.title }}</a></span>
+                                                                <span class="post-title"> <a href="/blog/{{ data.slug }}">{{ data.title }}</a></span>
                                                             </div>
                                                         </div>
                                                     </div>
