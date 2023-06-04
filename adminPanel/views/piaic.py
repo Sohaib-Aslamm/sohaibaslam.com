@@ -17,14 +17,13 @@ def adminPIAIC(request):
         sv = PIAIC(title=title, heading=heading, tags=tags, instructions=instructions, instructions_By=instructions_By,
                    description=description)
         sv.save()
-        latest_id = PIAIC.objects.latest('sNo').sNo
 
         for f in files:
-            Attachments = PIAIC_Attachments(files=f, Attachment_ID_id=latest_id)
+            Attachments = PIAIC_Attachments(files=f, Attachment_ID_id=sv.sNo)
             Attachments.save()
 
         for f in icons:
-            ICONS = PIAIC_ICONS(icons=f, Icon_ID_id=latest_id)
+            ICONS = PIAIC_ICONS(icons=f, Icon_ID_id=sv.sNo)
             ICONS.save()
 
         return redirect('/adminPIAIC')

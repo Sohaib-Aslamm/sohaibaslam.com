@@ -7,7 +7,7 @@ from django.utils.text import slugify
 class userBlog(models.Model):
     sNo = models.AutoField(primary_key=True)
     title = models.TextField(default="")
-    slug = models.SlugField(max_length=200, unique=True, default=slugify(title))
+    slug = models.SlugField(max_length=200, unique=True, null=True, default=None)
     heading = models.TextField(default="")
     tags = models.TextField(default="")
     quote = models.TextField(default="")

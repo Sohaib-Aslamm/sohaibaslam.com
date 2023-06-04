@@ -14,6 +14,6 @@ urlpatterns = [
     path('PIAIC_NOTIFI_QUERY', views.PIAIC_NOTIFI_QUERY, name="PIAIC_NOTIFI_QUERY"),
     path('thank_you', views.thank_you, name="thank_you"),
     path('thank_you_notif', views.thank_you_notif, name="thank_you_notif"),
-    path('ViewDetail/<int:sNo>/<str:type>', views.Detail_Record, name="ViewDetail"),
+    path('<str:type>/<str:slug>', views.Detail_Record, name="Detail_Record"),
     path('blogReview', views.blogReview, name="blogReview"),
     ]

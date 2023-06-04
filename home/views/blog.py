@@ -5,13 +5,13 @@ from django.core.paginator import Paginator
 
 
 def blog_list(request):
-    paginator = Paginator(userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo'), 5)
+    paginator = Paginator(userBlog.objects.values('sNo', 'title', 'heading', 'slug',  'Icon', 'created_at').order_by('-sNo'), 5)
     page_number = request.GET.get('page')
     blog_data = paginator.get_page(page_number)
     total_pages = blog_data.paginator.num_pages
 
-    recent_posts = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[10:16]
-    footer_recent = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[:2]
+    recent_posts = userBlog.objects.values('sNo', 'title', 'heading', 'slug', 'Icon', 'created_at').order_by('-sNo')[10:16]
+    footer_recent = userBlog.objects.values('sNo', 'title', 'heading', 'slug',  'Icon', 'created_at').order_by('-sNo')[:2]
 
     SMDT = SocialMedia.objects.all()
     SEOTAGS = seoTags.objects.filter(page='blog_page')
@@ -36,15 +36,15 @@ def search_blog(request):
             Q(title__icontains=search_keyword) |
             Q(heading__icontains=search_keyword) |
             Q(description__icontains=search_keyword)
-        ).values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')
+        ).values('sNo', 'title', 'heading', 'slug', 'Icon', 'created_at').order_by('-sNo')
 
         paginator = Paginator(blog_data, 5)
         page_number = request.GET.get('page')
         blog_data_final = paginator.get_page(page_number)
         total_pages = blog_data_final.paginator.num_pages
 
-        recent_posts = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[10:16]
-        footer_recent = userBlog.objects.values('sNo', 'title', 'heading', 'Icon', 'created_at').order_by('-sNo')[:2]
+        recent_posts = userBlog.objects.values('sNo', 'title', 'heading',  'slug', 'Icon', 'created_at').order_by('-sNo')[10:16]
+        footer_recent = userBlog.objects.values('sNo', 'title', 'heading',  'slug', 'Icon', 'created_at').order_by('-sNo')[:2]
 
         SMDT = SocialMedia.objects.all()
 
@@ -61,11 +61,11 @@ def search_blog(request):
 
 def blogReview(request):
     if request.method == 'POST':
-        postSno = request.POST.get('postSno')
+        slug = request.POST.get('slug')
         author = request.POST.get('author')
         email = request.POST.get('email')
         comment = request.POST.get('comment')
-        post_id = userBlog.objects.get(sNo=postSno)
-        sv = blog_Review(author=author, email=email, comment=comment, post=post_id)
+        post = userBlog.objects.get(slug=slug)
+        sv = blog_Review(author=author, email=email, comment=comment, post=post)
         sv.save()
-        return redirect(f'/ViewDetail/{postSno}/blogDetail')
+        return redirect(f'/blog/{slug}')

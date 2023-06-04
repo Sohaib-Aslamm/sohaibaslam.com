@@ -4,7 +4,17 @@
     <list default="true" id="a5bce9ef-6fa8-4538-8886-620b1f2d0b3c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminPanel/models/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/models/blog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/models/piaic.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/models/piaic.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adminPanel/templates/adminBlog.html" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/templates/adminBlog.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adminPanel/views/piaic.py" beforeDir="false" afterPath="$PROJECT_DIR$/adminPanel/views/piaic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/PIAIC.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/PIAIC.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/blog_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/blog_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/piaic_notifications.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/piaic_notifications.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/read_post.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/read_post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/blog.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/blog.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/piaic.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/piaic.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views/record_detail.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views/record_detail.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +127,7 @@
       <workItem from="1685682329308" duration="4000" />
       <workItem from="1685725198118" duration="5639000" />
       <workItem from="1685731586290" duration="1467000" />
-      <workItem from="1685863983911" duration="3870000" />
+      <workItem from="1685863983911" duration="24166000" />
     </task>
     <servers />
   </component>

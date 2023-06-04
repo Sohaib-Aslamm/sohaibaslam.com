@@ -1,17 +1,23 @@
 from django.db import models
 import django.utils.timezone
 from ckeditor.fields import RichTextField
+from django.utils.text import slugify
 
 
 class PIAIC(models.Model):
     sNo = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, default="")
+    slug = models.SlugField(max_length=200, unique=True, null=True, default=None)
     heading = models.CharField(max_length=255, default="")
     tags = models.CharField(max_length=255, default="")
     instructions = models.CharField(max_length=255, default="")
     instructions_By = models.CharField(max_length=255, default="")
     description = RichTextField(default="")
     created_at = models.DateTimeField(default=django.utils.timezone.now())
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 class PIAIC_ICONS(models.Model):
@@ -33,6 +39,7 @@ class PIAIC_Attachments(models.Model):
 class PIAIC_Notifications(models.Model):
     sNo = models.AutoField(primary_key=True)
     title = models.CharField(max_length=255, default="")
+    slug = models.SlugField(max_length=200, unique=True, null=True, default=None)
     heading = models.CharField(max_length=255, default="")
     tags = models.CharField(max_length=255, default="")
     instructions = models.CharField(max_length=255, default="")
@@ -40,6 +47,10 @@ class PIAIC_Notifications(models.Model):
     description = RichTextField(default="")
     image = models.FileField(upload_to='PIAICAttachments/Notification', default="")
     created_at = models.DateTimeField(default=django.utils.timezone.now())
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super().save(*args, **kwargs)
 
 
 class PIAIC_Review(models.Model):

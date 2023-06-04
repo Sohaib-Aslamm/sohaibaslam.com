@@ -24,8 +24,8 @@ def PIAIC_QUERY(request):
         author = request.POST.get('author')
         email = request.POST.get('email')
         comment = request.POST.get('comment')
-        post_id = PIAIC.objects.get(sNo=attSno)
-        sv = PIAIC_Review(author=author, email=email, comment=comment, post=post_id)
+        post = PIAIC.objects.get(sNo=attSno)
+        sv = PIAIC_Review(author=author, email=email, comment=comment, post=post)
         sv.save()
         return redirect('/thank_you')
 
