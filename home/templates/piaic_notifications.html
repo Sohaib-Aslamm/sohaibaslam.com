@@ -64,7 +64,7 @@
                                         </div>
 
                                         <div class="wt-post-readmore ">
-                                            <a href="/Notification/{{ Attach.slug }}" class="site-button-link black">View Notification</a>
+                                            <a href="/notification/{{ Attach.slug }}" class="site-button-link black">View Notification</a>
                                         </div>
                                    </div>
                                 </div>
@@ -79,11 +79,11 @@
                           <li class="page-item"><a class="page-link" href="?page={{ Final_Attachments.previous_page_number }}">Previous</a></li>
                             {% endif %}
 
-                       <li class="page-item"><a class="page-link" href="/Notification?page=1">First</a></li>
+                       <li class="page-item"><a class="page-link" href="/notification?page=1">First</a></li>
 
 
                         {% for tpl in pageList %}
-                          <li class="page-item"><a class="page-link" href="/Notification?page={{ tpl }}">{{ tpl }}</a></li>
+                          <li class="page-item"><a class="page-link" href="/notification?page={{ tpl }}">{{ tpl }}</a></li>
                         {% endfor %}
 
                         {% if Final_Attachments.has_next  %}

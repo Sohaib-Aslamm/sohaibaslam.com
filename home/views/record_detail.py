@@ -14,7 +14,7 @@ def Detail_Record(request, type, slug):
         context = {'rdPost': rdPost, 'RCPST': RCPST, 'SMDT': SMDT, 'coments': coments, 'footer_recent': footer_recent}
         return render(request, 'read_post.html', context)
 
-    if type == 'PIAIC':
+    if type == 'piaic':
         readAttachment = PIAIC.objects.filter(slug=slug)
         Attachments = PIAIC_Attachments.objects.filter(Attachment_ID_id__in=readAttachment)
         ICONS = PIAIC_ICONS.objects.filter(Icon_ID_id__in=readAttachment)
@@ -25,7 +25,7 @@ def Detail_Record(request, type, slug):
                    'ICONS': ICONS, 'RCPST': RCPST, 'SMDT': SMDT}
         return render(request, 'Read_Attachment.html', context)
 
-    if type == 'Notification':
+    if type == 'notification':
         readAttachment = PIAIC_Notifications.objects.filter(slug=slug)
         piaic_query = PIAIC_NOTIFI_Review.objects.filter(post__in=readAttachment).order_by('-sNo')
         SMDT = SocialMedia.objects.all()
