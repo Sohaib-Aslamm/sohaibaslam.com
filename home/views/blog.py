@@ -47,6 +47,7 @@ def search_blog(request):
         footer_recent = userBlog.objects.values('sNo', 'title', 'heading',  'slug', 'Icon', 'created_at').order_by('-sNo')[:2]
 
         SMDT = SocialMedia.objects.all()
+        SEOTAGS = seoTags.objects.filter(page='search_blog')
 
         context = {
             'BLOGDATA': blog_data_final,
@@ -55,6 +56,7 @@ def search_blog(request):
             'RCPST': recent_posts,
             'footer_recent': footer_recent,
             'SMDT': SMDT,
+            'SEOTAGS': SEOTAGS
         }
         return render(request, 'blog_list.html', context)
 
