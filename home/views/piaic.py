@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from adminPanel.models import SocialMedia, userBlog, PIAIC, PIAIC_Review, PIAIC_Notifications, PIAIC_NOTIFI_Review, \
     seoTags
 from django.core.paginator import Paginator
+from django.urls import reverse
 
 
 def PIAIC_Attachs(request):
@@ -12,7 +13,20 @@ def PIAIC_Attachs(request):
     totalPages = Final_Attachments.paginator.num_pages
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
-    SEOTAGS = seoTags.objects.filter(page='piaic_page')
+
+    current_page = request.GET.get('page')
+    canonical_link = reverse('piaic')  # Assuming 'blog' is the name of your URL pattern
+
+    if current_page:
+        canonical_link += f'?page={current_page}'
+
+    SEOTAGS = [{
+        'title': "Presidential Initiative of Artificial Intelligence",
+        'description': "This is the PIAIC main page where you can see all the latest courses you can learn and the courses are already started",
+        'tags': "piaic presidential initiative of artificial intelligence zia khan daniyal nagori metaverse research blendar metamask dr arif alvi miltary academy saylani karachi basheer farooqi",
+        'canonical_link': request.build_absolute_uri(canonical_link)
+    }]
+
     context = {'Final_Attachments': Final_Attachments, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
                'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS}
     return render(request, 'PIAIC.html', context)
@@ -38,7 +52,19 @@ def PIAIC_NOTIFI(request):
     totalPages = Final_Attachments.paginator.num_pages
     SMDT = SocialMedia.objects.all()
     RCPST = userBlog.objects.order_by('-sNo')[:2]
-    SEOTAGS = seoTags.objects.filter(page='piaic_notification_page')
+
+    current_page = request.GET.get('page')
+    canonical_link = reverse('notification')  # Assuming 'blog' is the name of your URL pattern
+
+    if current_page:
+        canonical_link += f'?page={current_page}'
+
+    SEOTAGS = [{
+        'title': "PIAIC Notifications",
+        'description': "This is the page where you can see all the latest notifications for PIAIC program in Pakistan, Karachi, Islamabad, Faisalabad",
+        'tags': "piaic presidential initiative of artificial intelligence zia khan daniyal nagori metaverse research blendar metamask dr arif alvi miltary academy saylani karachi basheer farooqi, piaic notifications",
+        'canonical_link': request.build_absolute_uri(canonical_link)
+    }]
     context = {'Final_Attachments': Final_Attachments, 'lastPage': totalPages, 'pageList': [n + 1 for n in range(totalPages)],
                'RCPST': RCPST, 'SMDT': SMDT, 'SEOTAGS': SEOTAGS}
     return render(request, 'piaic_notifications.html', context)

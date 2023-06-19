@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from adminPanel.models import SocialMedia, userBlog, blog_Review, seoTags
 from django.db.models import Q
 from django.core.paginator import Paginator
+from django.urls import reverse
 
 
 def blog_list(request):
@@ -14,7 +15,19 @@ def blog_list(request):
     footer_recent = userBlog.objects.values('sNo', 'title', 'heading', 'slug',  'Icon', 'created_at').order_by('-sNo')[:2]
 
     SMDT = SocialMedia.objects.all()
-    SEOTAGS = seoTags.objects.filter(page='blog_page')
+
+    current_page = request.GET.get('page')
+    canonical_link = reverse('blog')  # Assuming 'blog' is the name of your URL pattern
+
+    if current_page:
+        canonical_link += f'?page={current_page}'
+
+    SEOTAGS = [{
+        'title': "Sohaib Aslam's Blog - Data Science, Python, Computer Vision, and New Technologies",
+        'description': "Discover a comprehensive blog sharing the latest technical news, computer science insights, programming tips, and technology updates. Stay informed and gain valuable knowledge in the ever-evolving world of technology.",
+        'tags': "technical news, computer science, programming, technology updates, blog, insights, knowledge",
+        'canonical_link': request.build_absolute_uri(canonical_link)
+    }]
 
     context = {
         'BLOGDATA': blog_data,
